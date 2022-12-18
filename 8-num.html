@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Number</title>
+    <script>
+      "use strict";
+      /*
+       * # 数值
+       *
+       * - 在 JS 中所有的数值都是 Number 类型，包括整数和浮点数
+       * - JS 中可以表示数字的最大值：`Number.MAX_VALUE`
+       * - 如果使用 Number 表示的数字超过了最大值，会返回 `Infinity`，表示正无穷
+       * - `NaN` 是一个特殊的数字，表示 Not a Number
+       * - 大于 0 的最小值：`Number.MIN_VALUE`
+       * - JS 中整数的运算基本可以保证精确
+       * - 如果使用 JS 进行浮点运算，可能得到一个不精确的结果，所以千万不要使用 JS 进行对精度要求比较高的运算
+       */
+      let n1 = 123;
+      console.log(n1);
+      // 可以使用 typeof 运算符检查变量的类型
+      console.log(typeof n1);
+
+      let s = "123";
+      console.log(s);
+      console.log(typeof s);
+      console.log(typeof typeof s);
+
+      console.log(Number.MAX_VALUE); // 1.7976931348623157e+308
+
+      console.log(Number.MAX_VALUE * Number.MAX_VALUE); // Infinity
+      console.log(-Number.MAX_VALUE * Number.MAX_VALUE); // -Infinity
+
+      console.log("a" * "b"); // NaN
+
+      console.log(Number.MIN_VALUE); // 5e-324
+
+      let n2 = 123 + 456;
+      console.log(n2);
+      n2 = 0.1 + 0.2;
+      console.log(n2); // 0.30000000000000004
+      console.log(+n2.toFixed(2)); // 0.3
+
+      console.log(0.28 * 100); // 28.000000000000004
+      console.log(0.14 * 100); // 14.000000000000002
+      console.log(0.28 * 100 + 0.14 * 100); // 42.00000000000001
+      console.log((0.28 * 100 + 0.14 * 100) / 100); // 0.4200000000000001
+
+      console.log((+(0.28 * 100).toFixed(0) + +(0.14 * 100).toFixed(0)) / 100); // 0.42
+    </script>
+  </head>
+  <body></body>
+</html>
