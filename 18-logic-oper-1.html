@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Logic Operator 1</title>
+    <script>
+      "use strict";
+      /*
+       * # 逻辑运算符
+       *
+       * - !
+       *   - 非运算
+       *   - 如果对一个值取反两次，其不会变化
+       *   - 如果对非布尔值进行运算，则会将其转换为布尔值
+       *     - 可以利用以上两个特点，将一个其它数据类型转换为布尔值
+       * - &&
+       *   - 短路与
+       * - ||
+       *   - 短路或
+       */
+      let a = true;
+      console.log(a);
+
+      a = !a;
+      console.log(a);
+
+      console.log("\n");
+
+      let b = 10;
+      console.log(b);
+      console.log(typeof b);
+
+      b = !!b;
+      console.log(b);
+      console.log(typeof b);
+
+      console.log("\n");
+
+      true && console.log("Hello");
+      false && console.log("World");
+    </script>
+  </head>
+  <body></body>
+</html>

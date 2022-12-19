@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Operator</title>
+    <script>
+      "use strict";
+      /*
+       * # 运算符
+       *
+       * - 运算符也叫操作符
+       * - 通过运算符可以对一个或多个值进行运算，并获取运算结果
+       *
+       * ## 算数运算符
+       *
+       * - 当对非 Number 类型的值进行运算时，会将这些值转换为 Number 然后再运算
+       * - 任何值和 NaN 做运算结果都是 NaN
+       * - 种类
+       *   - `+`
+       *     - 如果对两个字符串进行加法运算，则会做拼串
+       *     - 任何的值和字符串做加法运算，都会先转换为字符串，然后再和字符串做拼串
+       *       - 实际上也是调用的 `String()` 方法
+       *   - `-`
+       *   - `*`
+       *   - `/`
+       *   - `%`
+       */
+      let a = 1;
+      console.log(a);
+
+      a = a + 1;
+      console.log(a);
+
+      a = true + false;
+      console.log(a);
+
+      a = null + 1;
+      console.log(a);
+
+      a = NaN + 1;
+      console.log(a);
+
+      a = undefined + 1;
+      console.log(a);
+
+      console.log("\n");
+
+      let b = "Hello" + " " + "World!";
+      console.log(b);
+
+      b = 123 + "1";
+      console.log(b);
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conversion to Boolean</title>
+    <script>
+      "use strict";
+      /*
+       * # 将其它的数据类型转换为 Boolean
+       *
+       * 使用 `Boolean()` 函数：
+       *
+       * - 直观上为“空”的值（如 0、NaN、空字符串、null 和 undefined）转换为 false
+       * - 其它值转换为 true
+       * - 对象也会转换为 true
+       */
+      let a = Boolean("123");
+      console.log(a);
+      console.log(typeof a);
+
+      a = Boolean(0);
+      console.log(a);
+
+      a = Boolean(NaN);
+      console.log(a);
+
+      console.log("\n");
+
+      let b = Boolean("Hello");
+      console.log(b);
+
+      b = Boolean("");
+      console.log(b);
+
+      console.log("\n");
+
+      let c = Boolean(null);
+      console.log(c);
+
+      console.log("\n");
+
+      let d;
+      d = Boolean(d);
+      console.log(d);
+    </script>
+  </head>
+  <body></body>
+</html>
