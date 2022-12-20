@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Object Literal</title>
+    <script>
+      "use strict";
+      /*
+       * # 对象字面量
+       *
+       * - 使用对象字面量，可以在创建对象时，直接指定对象中的属性
+       * - 对象字面量的属性名可以加引号，也可以不加，但建议不加
+       *   - 如果要使用一些特殊的名字，则必须加引号
+       * - 属性名和属性值是一组名值对结构
+       *   - 名和值之间使用 `:` 连接
+       *   - 多个名值对之间使用 `,` 隔开
+       *   - 如果一个属性之后没有其它属性了，就不要写 `,` 了
+       */
+      let o1 = {};
+      console.log(o1);
+      console.log(typeof o1);
+
+      console.log("\n");
+
+      let o2 = { name: "icekylin", age: 20 };
+      console.log(o2);
+    </script>
+  </head>
+  <body></body>
+</html>

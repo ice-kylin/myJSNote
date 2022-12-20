@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Attribute Name and Attribute Value</title>
+    <script>
+      "use strict";
+      /*
+       * # 属性名和属性值
+       *
+       * ## 属性名
+       *
+       * - 不强制要求遵守标识符的规范
+       * - 但还是应该按照标识符的规范去做
+       * - 如果使用特殊的属性名，不能采用 `.` 的方式来操作
+       * - 使用 `[]` 这种形式去操作属性，更加的灵活
+       *   - 在 `[]` 中可以直接传递一个变量，这样变量是多少就会读取那个属性
+       */
+      let o1 = new Object();
+      o1["123"] = 789;
+      console.log(o1);
+      console.log(o1["123"]);
+
+      console.log("\n");
+
+      let v = "hello";
+      o1[v] = "world";
+      console.log(o1[v]);
+
+      console.log("\n");
+
+      /*
+       * ## 属性值
+       *
+       * - JS 对象的属性值可以是任意的数据类型
+       *   - 甚至也可以是一个对象
+       * - `in`
+       *   - 通过该运算符可以检查一个对象是否含有指定的属性
+       */
+      let o2 = new Object();
+      o2.name = "icekylin";
+      o1.obj = o2;
+
+      console.log(o1);
+      console.log(o1.obj);
+
+      console.log("\n");
+
+      console.log("o" in o1);
+      console.log("obj" in o1);
+    </script>
+  </head>
+  <body></body>
+</html>

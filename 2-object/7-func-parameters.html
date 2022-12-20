@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Function Parameters</title>
+    <script>
+      "use strict";
+      /*
+       * # 函数的参数
+       *
+       * - 可以在函数的 `()` 中指定一个或多个形参
+       *   - 多个形参之间使用 `,` 隔开
+       *   - 声明形参就相当于在函数内部声明了对应的变量
+       * - 在调用函数时，可以在 `()` 中指定实参
+       * - 调用函数时
+       *   - 解析器不会检查实参的类型，所以要注意是否有可能会接收到非法的参数
+       *   - 解析器也不会检查实参的数量
+       *     - 多余的实参不会被赋值
+       *     - 如果实参的数量少于形参的数量，则没有对应实参的形参将是 undefined
+       */
+      function sum(a, b) {
+        console.log(a + b);
+      }
+
+      sum(1, 2);
+    </script>
+  </head>
+  <body></body>
+</html>
