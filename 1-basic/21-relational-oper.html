@@ -1,46 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8"/>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Relational Operator</title>
     <script>
-      "use strict";
-      /*
-       * # 关系运算符
-       *
-       * - 种类
-       *   - `>`
-       *   - `>=`
-       *   - `<`
-       *   - `<=`
-       * - 非 Number 情况
-       *   - 会先将其转换为数字然后再比较
-       *   - 如果符号两侧的值都是字符串时，不会将其转换为数字进行比较，而会分别比较字符串中字符的 Unicode 编码
-       *     - 比较中文时没有意义
-       *     - 在比较两个字符串型的数字时，一定要转型
-       * - 任何值和 NaN 做任何比较都是 false
-       */
-      console.log(5 > 10);
-      console.log(5 >= 5);
+        "use strict";
+        /*
+         * # 关系运算符
+         *
+         * - 种类
+         *   - `>`
+         *   - `>=`
+         *   - `<`
+         *   - `<=`
+         * - 非 Number 情况
+         *   - 会先将其转换为数字然后再比较
+         *   - 如果符号两侧的值都是字符串时，不会将其转换为数字进行比较，而会分别比较字符串中字符的 Unicode 编码
+         *     - 比较中文时没有意义
+         *     - 在比较两个字符串型的数字时，一定要转型
+         * - 任何值和 NaN 做任何比较都是 false
+         */
+        console.log(5 > 10);
+        console.log(5 >= 5);
 
-      console.log("\n");
+        console.log("\n");
 
-      console.log(1 > false);
-      console.log(1 > "Hello");
+        console.log(1 > false);
+        console.log(1 > "Hello");
 
-      console.log("\n");
+        console.log("\n");
 
-      console.log("11" < "5");
-      console.log("a" < "b");
-      console.log("a" < "ab");
+        console.log("11" < "5");
+        console.log("a" < "b");
+        console.log("a" < "ab");
 
-      console.log("\n");
+        console.log("\n");
 
-      console.log("11" < "5");
-      console.log(+"11" < +"5");
+        console.log("11" < "5");
+        console.log(+"11" < +"5");
     </script>
-  </head>
-  <body></body>
+</head>
+<body></body>
 </html>

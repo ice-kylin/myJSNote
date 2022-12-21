@@ -1,45 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8"/>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Unary Operator</title>
     <script>
-      "use strict";
-      /*
-       * # 一元运算符
-       *
-       * - 只需要一个操作数
-       * - 当对非 Number 类型的值进行运算时，会将这些值转换为 Number 然后再运算
-       *   - 可以对一个其它的数据类型使用 `+` 来将其转换为 Number
-       * - 种类
-       *   - `+`
-       *     - 正号不会对数字产生任何的影响
-       *   - `-`
-       *     - 符号可以对数字进行负号的取反
-       */
-      let a = 123;
-      console.log(a);
+        "use strict";
+        /*
+         * # 一元运算符
+         *
+         * - 只需要一个操作数
+         * - 当对非 Number 类型的值进行运算时，会将这些值转换为 Number 然后再运算
+         *   - 可以对一个其它的数据类型使用 `+` 来将其转换为 Number
+         * - 种类
+         *   - `+`
+         *     - 正号不会对数字产生任何的影响
+         *   - `-`
+         *     - 符号可以对数字进行负号的取反
+         */
+        let a = 123;
+        console.log(a);
 
-      a = +a;
-      console.log(a);
+        a = +a;
+        console.log(a);
 
-      a = -true;
-      console.log(a);
+        a = -true;
+        console.log(a);
 
-      console.log("\n");
+        console.log("\n");
 
-      let b = "123";
-      console.log(b);
-      console.log(typeof b);
+        let b = "123";
+        console.log(b);
+        console.log(typeof b);
 
-      console.log("\n");
+        console.log("\n");
 
-      b = +b;
-      console.log(b);
-      console.log(typeof b);
+        b = +b;
+        console.log(b);
+        console.log(typeof b);
     </script>
-  </head>
-  <body></body>
+</head>
+<body></body>
 </html>

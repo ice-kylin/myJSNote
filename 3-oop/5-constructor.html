@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Constructor</title>
+    <script>
+        "use strict";
+
+        /*
+         * # 构造函数
+         *
+         * - 当在类中指定实例属性的值时，意味着创建的所有对象的属性都是这个值
+         */
+        class Person {
+            name;
+            age;
+            gender;
+
+            /*
+             * - 在类中可以添加一个特殊的方法 `constructor`
+             * - 该方法称为构造函数（构造方法）
+             * - 构造函数会在调用类创建对象时执行
+             * - 可以在构造函数中为实例属性进行赋值
+             * - 在构造函数中，`this` 表示当前所创建的对象
+             */
+            constructor(name, age, gender) {
+                console.log(`构造函数 ${name}、${age}、${gender}`);
+                this.name = name;
+                this.age = age;
+                this.gender = gender;
+            }
+        }
+
+        const p1 = new Person('icekylin', 20, false);
+        const p2 = new Person('firekylin', 18, false);
+
+        console.log(p1);
+        console.log(p2);
+    </script>
+</head>
+<body></body>
+</html>

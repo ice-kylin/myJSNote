@@ -1,51 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8"/>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Equality Operator</title>
     <script>
-      "use strict";
-      /*
-       * # 相等运算符
-       *
-       * - `==`
-       *   - NaN 不和任何值相等
-       *   - undefined 和 null 在相等性检查 == 中不会进行任何的类型转换
-       *     - 它们有自己独立的比较规则
-       *     - 除了它们之间互等外，不会等于任何其它的值
-       *   - undefined 只与 null 相等，不会与其它值相等
-       * - `!=`
-       * - `===`
-       *   - 和 `==` 类似，但是不会做类型转换
-       *   - 如果两个值的类型不同，直接返回 false
-       * - `!==`
-       */
-      console.log(1 == 1);
-      console.log(1 == 4);
+        "use strict";
+        /*
+         * # 相等运算符
+         *
+         * - `==`
+         *   - NaN 不和任何值相等
+         *   - undefined 和 null 在相等性检查 == 中不会进行任何的类型转换
+         *     - 它们有自己独立的比较规则
+         *     - 除了它们之间互等外，不会等于任何其它的值
+         *   - undefined 只与 null 相等，不会与其它值相等
+         * - `!=`
+         * - `===`
+         *   - 和 `==` 类似，但是不会做类型转换
+         *   - 如果两个值的类型不同，直接返回 false
+         * - `!==`
+         */
+        console.log(1 == 1);
+        console.log(1 == 4);
 
-      console.log("\n");
+        console.log("\n");
 
-      console.log(true == "1");
-      console.log(null == 0);
-      console.log(null == undefined);
-      console.log(undefined == undefined);
+        console.log(true == "1");
+        console.log(null == 0);
+        console.log(null == undefined);
+        console.log(undefined == undefined);
 
-      console.log("\n");
+        console.log("\n");
 
-      /*
-       * 通过 `isNaN` 函数判断一个值是否是 NaN
-       */
-      let a = NaN;
-      console.log(a == NaN);
-      console.log(isNaN(a));
+        /*
+         * 通过 `isNaN` 函数判断一个值是否是 NaN
+         */
+        let a = NaN;
+        console.log(a == NaN);
+        console.log(isNaN(a));
 
-      console.log("\n");
+        console.log("\n");
 
-      console.log("123" == 123);
-      console.log("123" === 123);
+        console.log("123" == 123);
+        console.log("123" === 123);
     </script>
-  </head>
-  <body></body>
+</head>
+<body></body>
 </html>

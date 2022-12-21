@@ -1,47 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8"/>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Basic Operation</title>
     <script>
-      "use strict";
-      /*
-       * # 对象的基本操作
-       *
-       * - 使用 `new` 关键字调用的函数，是构造函数
-       *   - 构造函数是专门用来创建对象的函数
-       * - 在对象中保存的值称为属性
-       * - 如果读取对象中没有的属性，会返回 `undefined`
-       */
-      let o = new Object();
-      console.log(o);
-      console.log(typeof o);
+        "use strict";
+        /*
+         * # 对象的基本操作
+         *
+         * - 使用 `new` 关键字调用的函数，是构造函数
+         *   - 构造函数是专门用来创建对象的函数
+         * - 在对象中保存的值称为属性
+         * - 如果读取对象中没有的属性，会返回 `undefined`
+         */
+        let o = new Object();
+        console.log(o);
+        console.log(typeof o);
 
-      console.log("\n");
+        console.log("\n");
 
-      o.name = "icekylin";
-      o.gender = "female";
-      o.age = 20;
-      console.log(o);
+        o.name = "icekylin";
+        o.gender = "female";
+        o.age = 20;
+        console.log(o);
 
-      console.log("\n");
+        console.log("\n");
 
-      console.log(o.name);
-      console.log(o.gender);
-      console.log(o.age);
+        console.log(o.name);
+        console.log(o.gender);
+        console.log(o.age);
 
-      console.log("\n");
+        console.log("\n");
 
-      o.name = "firekylin";
-      console.log(o.name);
+        o.name = "firekylin";
+        console.log(o.name);
 
-      console.log("\n");
+        console.log("\n");
 
-      delete o.gender;
-      console.log(o.gender);
+        delete o.gender;
+        console.log(o.gender);
     </script>
-  </head>
-  <body></body>
+</head>
+<body></body>
 </html>

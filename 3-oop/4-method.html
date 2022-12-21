@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Method</title>
+    <script>
+        "use strict";
+
+        /*
+         * # 方法
+         *
+         */
+        class Person {
+            name = "icekylin";
+
+            static test1() {
+                console.log("Hello");
+            } // 静态方法（类方法，通过类来调用，this 指向的是当前类）
+
+            static test2() {
+                console.log(this);
+            }
+
+            sayHi() {
+                console.log(`Hi, ${this.name}!`);
+            } // 添加方法（实例方法，this 就是当前实例）
+        }
+
+        const p1 = new Person();
+        console.log(p1);
+
+        p1.sayHi();
+
+        // 和之前讲的 this 没有本质区别
+        Person.test1();
+        Person.test2();
+    </script>
+</head>
+<body></body>
+</html>

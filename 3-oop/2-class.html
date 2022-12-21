@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Class</title>
+    <script>
+        "use strict";
+        /*
+         * # 类的简介
+         *
+         * - 使用 `Object` 创建对象的问题
+         *   - 无法区分出不同类型的对象
+         *   - 不方便批量创建对象
+         * - 在 JS 中可以通过类解决这个问题
+         *   - 类是对象的模板，可以将对对象中的属性和方法直接定义在类中
+         *   - 定义后就可以直接通过类创建对象
+         *   - 通过同一个类创建的对象称为同类对象
+         *     - 可以使用 `instanceof` 检查一个对象是否是由某个类创建
+         *     - 如果某个对象是由某个类所创建，则称该对象是这个类的实例
+         */
+        const Animal = class {
+        };
+
+        class Person {
+        }
+
+        class Dog {
+        }
+
+        console.log(Person);
+
+        console.log("\n");
+
+        const p1 = new Person();
+        const d1 = new Dog();
+        console.log(p1);
+        console.log(d1);
+
+        console.log("\n");
+
+        console.log(p1 instanceof Person);
+        console.log(d1 instanceof Person);
+    </script>
+</head>
+<body></body>
+</html>

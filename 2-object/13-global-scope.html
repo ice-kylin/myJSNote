@@ -1,44 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8"/>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Global Scope</title>
     <script>
-      "use strict";
-      /*
-       * # 作用域
-       *
-       * - 作用域指一个变量的作用的范围
-       * - JS 中一共有两种作用域
-       *   - 全局作用域
-       *   - 函数作用域
-       *
-       * # 全局作用域
-       *
-       * - 直接编写在 script 标签中的 JS 代码，都在全局作用域
-       * - 全局作用域在页面打开时创建、页面关闭时销毁
-       * - 在全局作用域中有一个全局对象 `window`
-       *   - 代表一个浏览器窗口
-       *   - 由浏览器创建，可以直接使用
-       *   - 负责存储 JS 的内置对象和宿主对象
-       * - 在全局作用域中
-       *   - 使用 `var` 声明的变量，都会作为 `window` 对象的属性保存
-       *   - 使用 `function` 声明的函数，都会作为 `window` 对象的方法保存
-       * - 全局作用域中的变量都是全局变量，在页面任意的部分都可以访问的到
-       */
-      console.log(window);
+        "use strict";
+        /*
+         * # 作用域
+         *
+         * - 作用域指一个变量的作用的范围
+         * - JS 中一共有两种作用域
+         *   - 全局作用域
+         *   - 函数作用域
+         *
+         * # 全局作用域
+         *
+         * - 直接编写在 script 标签中的 JS 代码，都在全局作用域
+         * - 全局作用域在页面打开时创建、页面关闭时销毁
+         * - 在全局作用域中有一个全局对象 `window`
+         *   - 代表一个浏览器窗口
+         *   - 由浏览器创建，可以直接使用
+         *   - 负责存储 JS 的内置对象和宿主对象
+         * - 在全局作用域中
+         *   - 使用 `var` 声明的变量，都会作为 `window` 对象的属性保存
+         *   - 使用 `function` 声明的函数，都会作为 `window` 对象的方法保存
+         * - 全局作用域中的变量都是全局变量，在页面任意的部分都可以访问的到
+         */
+        console.log(window);
 
-      var a = "Hello World!";
-      console.log(window.a);
+        var a = "Hello World!";
+        console.log(window.a);
 
-      function fn() {
-        console.log("fn");
-      }
+        function fn() {
+            console.log("fn");
+        }
 
-      window.fn();
+        window.fn();
     </script>
-  </head>
-  <body></body>
+</head>
+<body></body>
 </html>

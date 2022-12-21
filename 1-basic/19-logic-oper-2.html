@@ -1,33 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8"/>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Logic Operator 2</title>
     <script>
-      "use strict";
-      /*
-       * # &&、|| 非布尔值的情况
-       *
-       * - 对于非布尔值进行与或运算时，会将其转换为布尔值，然后再运算，并且返回原值
-       * - &&
-       *   - 如果第一个值为 true，则必然返回第二个值
-       *   - 如果第一个值为 false，则直接返回第一个值
-       * - ||
-       *   - 如果第一个值为 true，则直接返回第一个值
-       *   - 如果第一个值为 false，则必然返回第二个值
-       */
-      console.log(1 && 2);
-      console.log(1 && 0);
-      console.log(0 && 1);
+        "use strict";
+        /*
+         * # &&、|| 非布尔值的情况
+         *
+         * - 对于非布尔值进行与或运算时，会将其转换为布尔值，然后再运算，并且返回原值
+         * - &&
+         *   - 如果第一个值为 true，则必然返回第二个值
+         *   - 如果第一个值为 false，则直接返回第一个值
+         * - ||
+         *   - 如果第一个值为 true，则直接返回第一个值
+         *   - 如果第一个值为 false，则必然返回第二个值
+         */
+        console.log(1 && 2);
+        console.log(1 && 0);
+        console.log(0 && 1);
 
-      console.log("\n");
+        console.log("\n");
 
-      console.log(1 || 2);
-      console.log(0 || 1);
-      console.log(0 || NaN);
+        console.log(1 || 2);
+        console.log(0 || 1);
+        console.log(0 || NaN);
     </script>
-  </head>
-  <body></body>
+</head>
+<body></body>
 </html>

@@ -1,37 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8"/>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Hoisting</title>
     <script>
-      "use strict";
-      /*
-       * # 声明提前
-       *
-       * ## 变量的声明提前
-       *
-       * - 使用 `var` 关键字声明的变量，会在所有的代码执行之前被声明
-       * - 但是如果声明变量时不使用 `var` 关键字，则变量不会被声明提前
-       *
-       * ## 函数的声明提前
-       *
-       * - 使用函数声明形式创建的函数会在所有代码执行前就被创建
-       *   - 所以可以在函数声明前调用函数
-       * - 使用函数表达式创建的函数，不会被声明提前，所以不能在声明前调用
-       */
-      console.log(`a = ${a}`);
-      var a = "hello";
+        "use strict";
+        /*
+         * # 声明提前
+         *
+         * ## 变量的声明提前
+         *
+         * - 使用 `var` 关键字声明的变量，会在所有的代码执行之前被声明
+         * - 但是如果声明变量时不使用 `var` 关键字，则变量不会被声明提前
+         *
+         * ## 函数的声明提前
+         *
+         * - 使用函数声明形式创建的函数会在所有代码执行前就被创建
+         *   - 所以可以在函数声明前调用函数
+         * - 使用函数表达式创建的函数，不会被声明提前，所以不能在声明前调用
+         */
+        console.log(`a = ${a}`);
+        var a = "hello";
 
-      console.log("\n");
+        console.log("\n");
 
-      fn();
+        fn();
 
-      function fn() {
-        console.log("Hello world!");
-      }
+        function fn() {
+            console.log("Hello world!");
+        }
     </script>
-  </head>
-  <body></body>
+</head>
+<body></body>
 </html>

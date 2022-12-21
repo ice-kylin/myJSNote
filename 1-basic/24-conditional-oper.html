@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8"/>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Conditional Operator</title>
     <script>
-      "use strict";
-      /*
-       * # 条件运算符
-       */
-      let a = 10;
-      let b = 20;
-      let max = a > b ? a : b;
+        "use strict";
+        /*
+         * # 条件运算符
+         */
+        let a = 10;
+        let b = 20;
+        let max = a > b ? a : b;
 
-      a > b ? console.log("a 大") : console.log("b 大");
-      console.log(`max = ${max}`);
+        a > b ? console.log("a 大") : console.log("b 大");
+        console.log(`max = ${max}`);
 
-      console.log("\n");
+        console.log("\n");
 
-      let c = 30;
-      max = a > b ? (a > c ? a : c) : b > c ? b : c;
-      console.log(`max = ${max}`);
+        let c = 30;
+        max = a > b ? (a > c ? a : c) : b > c ? b : c;
+        console.log(`max = ${max}`);
     </script>
-  </head>
-  <body></body>
+</head>
+<body></body>
 </html>

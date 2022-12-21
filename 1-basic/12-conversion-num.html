@@ -1,96 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8"/>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Conversion to Number</title>
     <script>
-      "use strict";
-      /*
-       * # 将其它的数据类型转换为 Number
-       *
-       * 1. 使用 `Number()` 函数
-       *    - String
-       *      - 如果是纯数字的字符串，则将其直接转换为数字
-       *      - 如果字符串中有非数字内容，则转换为 NaN
-       *      - 如果字符串是空串或者是全是空格的字符串，则转换为 0
-       *    - Boolean
-       *      - true 转成 1
-       *      - false 转成 0
-       *    - Null
-       *      - null 转成 0
-       *    - Undefined
-       *      - undefined 转成 NaN
-       * 2. 使用 `parseInt()` 可以将一个字符串中的有效的整数内容取出来然后转换为 Number
-       * 3. `parseFloat()` 和 `parseInt()` 类似，不同的是可以获得有效的小数
-       *    - 如果对非 String 使用 `parseInt()` 和 `parseFloat()`，它会先将其转换为 String，然后再操作
-       */
-      let a = "123";
-      a = Number(a);
-      console.log(a);
-      console.log(typeof a);
+        "use strict";
+        /*
+         * # 将其它的数据类型转换为 Number
+         *
+         * 1. 使用 `Number()` 函数
+         *    - String
+         *      - 如果是纯数字的字符串，则将其直接转换为数字
+         *      - 如果字符串中有非数字内容，则转换为 NaN
+         *      - 如果字符串是空串或者是全是空格的字符串，则转换为 0
+         *    - Boolean
+         *      - true 转成 1
+         *      - false 转成 0
+         *    - Null
+         *      - null 转成 0
+         *    - Undefined
+         *      - undefined 转成 NaN
+         * 2. 使用 `parseInt()` 可以将一个字符串中的有效的整数内容取出来然后转换为 Number
+         * 3. `parseFloat()` 和 `parseInt()` 类似，不同的是可以获得有效的小数
+         *    - 如果对非 String 使用 `parseInt()` 和 `parseFloat()`，它会先将其转换为 String，然后再操作
+         */
+        let a = "123";
+        a = Number(a);
+        console.log(a);
+        console.log(typeof a);
 
-      console.log("\n");
+        console.log("\n");
 
-      let b = "abc";
-      b = Number(b);
-      console.log(b);
-      console.log(typeof b);
+        let b = "abc";
+        b = Number(b);
+        console.log(b);
+        console.log(typeof b);
 
-      console.log("\n");
+        console.log("\n");
 
-      let c = "";
-      c = Number(c);
-      console.log(c);
-      console.log(typeof c);
+        let c = "";
+        c = Number(c);
+        console.log(c);
+        console.log(typeof c);
 
-      console.log("\n");
+        console.log("\n");
 
-      let d = true;
-      d = Number(d);
-      console.log(d);
-      console.log(typeof d);
-      d = false;
-      d = Number(d);
-      console.log(d);
-      console.log(typeof d);
+        let d = true;
+        d = Number(d);
+        console.log(d);
+        console.log(typeof d);
+        d = false;
+        d = Number(d);
+        console.log(d);
+        console.log(typeof d);
 
-      console.log("\n");
+        console.log("\n");
 
-      let e = null;
-      e = Number(e);
-      console.log(e);
-      console.log(typeof e);
+        let e = null;
+        e = Number(e);
+        console.log(e);
+        console.log(typeof e);
 
-      console.log("\n");
+        console.log("\n");
 
-      let f;
-      f = Number(f);
-      console.log(f);
-      console.log(typeof f);
+        let f;
+        f = Number(f);
+        console.log(f);
+        console.log(typeof f);
 
-      console.log("\n");
+        console.log("\n");
 
-      let g = "123px";
-      g = parseInt(g);
-      console.log(g);
-      console.log(typeof g);
+        let g = "123px";
+        g = parseInt(g);
+        console.log(g);
+        console.log(typeof g);
 
-      console.log("\n");
+        console.log("\n");
 
-      let h = "123.456px";
-      h = parseFloat(h);
-      console.log(h);
-      console.log(typeof h);
+        let h = "123.456px";
+        h = parseFloat(h);
+        console.log(h);
+        console.log(typeof h);
 
-      console.log("\n");
+        console.log("\n");
 
-      let i = true;
-      i = parseInt(i);
-      console.log(i);
-      console.log(typeof i);
+        let i = true;
+        i = parseInt(i);
+        console.log(i);
+        console.log(typeof i);
     </script>
-  </head>
-  <body></body>
+</head>
+<body></body>
 </html>
