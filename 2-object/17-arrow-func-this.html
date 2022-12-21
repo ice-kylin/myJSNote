@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>this in Arrow Functions</title>
+    <script>
+      "use strict";
+      /*
+       * # 箭头函数中的 this
+       *
+       * - 箭头函数没有自己的 `this`
+       * - 它的 `this` 由它的外层作用域决定
+       *   - 箭头函数的 `this` 和它的调用方式无关
+       * - 当我们并不想要一个独立的 `this`，反而想从外部上下文中获取时，它很有用
+       */
+      let o1 = {
+        firstName: "icekylin",
+        sayHi() {
+          let fn = function () {
+            console.log(this);
+          };
+          fn();
+        },
+      };
+
+      o1.sayHi();
+
+      let o2 = {
+        firstName: "firekylin",
+        sayHi() {
+          let arrow = () => {
+            console.log(this);
+          };
+          arrow();
+        },
+      };
+
+      o2.sayHi();
+
+      let o3 = {
+        firstName: "sugarkylin",
+        sayHi() {
+          let arrow = () => {
+            console.log(this);
+          };
+          return arrow;
+        },
+      };
+
+      o3.sayHi()();
+    </script>
+  </head>
+  <body></body>
+</html>

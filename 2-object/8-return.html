@@ -10,9 +10,31 @@
       /*
        * # 函数的返回值
        *
-       *
-       *
+       * - 可以使用 `return` 来设置函数的返回值
+       * - 可以定义一个变量用来接收结果
+       * - `return` 后的语句都不会执行
+       * - 如果 `return` 语句后不跟任何值或者不写 `return` 相当于返回一个 undefined
        */
+      function sum(a, b, c) {
+        return a + b + c;
+      }
+
+      let rst = sum(1, 2, 3);
+      console.log(rst);
+
+      console.log("\n");
+
+      function sayHello(o) {
+        console.log(`我是${o.name}，今年 ${o.age} 岁，喜欢${o.hobby}。`);
+      }
+
+      let o = {
+        name: "cxk",
+        age: 18,
+        hobby: "唱、跳、rap、打篮球",
+      };
+
+      sayHello(o);
     </script>
   </head>
   <body></body>

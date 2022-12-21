@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Type of the Return Value</title>
+    <script>
+      "use strict";
+      /*
+       * # 返回值的类型
+       *
+       * - 返回值可以是任意的数据类型
+       *   - 包括对象（包括函数）
+       */
+      function f1() {
+        console.log("f1");
+      }
+
+      function f2() {
+        return f1;
+      }
+
+      f2()();
+    </script>
+  </head>
+  <body></body>
+</html>

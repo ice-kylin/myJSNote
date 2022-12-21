@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Local Scope</title>
+    <script>
+      "use strict";
+      /*
+       * # 局部作用域
+       *
+       * - 块作用域
+       *   - 在代码块执行时创建，代码块执行完毕就销毁
+       *   - 在块作用域中声明的变量时局部变量，只能在内部访问，外部无法访问
+       * - 函数作用域
+       *   - 函数作用域在函数调用时产生，调用结束后销毁
+       *   - 函数每次调用都会产生一个全新的函数作用域
+       *   - 在函数中第一的变量时局部变量，只能在函数内部访问，外部无法访问
+       *
+       * ## 作用域链
+       *
+       * 当使用一个变量时，JS 解释器会优先在当前作用域中寻找变量：
+       *
+       * 1. 如果找到了则直接使用
+       * 2. 如果没找到，则继续去上一层作用域中寻找，找到了则使用
+       * 3. 如果没找到，则继续去上一层寻找，以此类推
+       * 4. 如果一直到全局作用域都没找到，则报错
+       */
+      let a = "全局作用域";
+
+      {
+        let a = "块级作用域 1";
+
+        {
+          console.log(`a = "${a}`);
+        }
+      }
+
+      console.log("\n");
+
+      let b = "全局作用域";
+
+      function fn1() {
+        let b = "函数作用域 1";
+
+        function fn2() {
+          console.log(b);
+        }
+
+        fn2();
+      }
+
+      fn1();
+
+      console.log("\n");
+
+      let c = "全局作用域";
+
+      function fn3() {
+        let c = "函数作用域 1";
+
+        return function () {
+          console.log(c);
+        };
+      }
+
+      fn3()();
+    </script>
+  </head>
+  <body></body>
+</html>

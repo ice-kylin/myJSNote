@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Method</title>
+    <script>
+      "use strict";
+      /*
+       * # 方法
+       *
+       * - 对象的属性值可以是任何的数据类型，也可以是函数
+       * - 如果一个函数作为一个对象的属性保存，那么称这个函数是这个对象的方法
+       */
+      let o1 = new Object();
+
+      o1.name = "icekylin";
+      o1.sayName = function () {
+        console.log(o1.name);
+      };
+
+      o1.sayName();
+
+      console.log("\n");
+
+      let o2 = {
+        name: "firekylin",
+        sayName: function () {
+          console.log(o2.name);
+        },
+      };
+
+      o2.sayName();
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>this</title>
+    <script>
+      // "use strict";
+      /*
+       * # this
+       *
+       * - 函数在执行时， JS 解析器每次都会传递一个隐含的参数
+       * - 这个参数就叫 `this`
+       * - `this` 会指向一个对象
+       *   - 所指向的对象会根据函数调用方式的不同而不同
+       *     - 以函数形式调用时，`this` 指向的是 `window`
+       *       - 严格模式下的 `this` 值为 `undefined`
+       *     - 以方法的形式调用时，`this` 指向的是调用方法的对象
+       *   - 通过 `this` 可以在方法中引用调用方法的对象
+       */
+      function fn() {
+        console.log(this);
+      }
+
+      fn();
+
+      console.log("\n");
+
+      const o = {
+        name: "icekylin",
+        sayHi() {
+          console.log(`Hi, ${this.name}!`);
+        },
+        test: fn,
+      };
+
+      o.sayHi();
+      o.test();
+    </script>
+  </head>
+  <body></body>
+</html>
