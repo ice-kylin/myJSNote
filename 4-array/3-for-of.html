@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>for-of</title>
+    <script>
+        "use strict";
+
+        /*
+         * for-of 语句
+         *
+         * - 可以用来遍历可迭代对象
+         * - 数组中有几个元素就会执行几次
+         * - 每次执行时都会将一个元素赋值给变量
+         */
+        const arr = [
+            1,
+            2,
+            3,
+            4,
+            5,
+        ];
+
+        for (const number of arr) {
+            console.log(number);
+        }
+
+        console.log("\n");
+
+        for (const s of "hello") {
+            console.log(s);
+        }
+    </script>
+</head>
+<body></body>
+</html>

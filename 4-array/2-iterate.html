@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Iterate</title>
+    <script>
+        "use strict";
+
+        /*
+         * - 任何类型的值都可以成为数组中的元素
+         * - 创建数组时，尽量要确保数组中存储的数据类型是相同的
+         *
+         * # 遍历数组
+         *
+         * - 获取到数组中的每一个元素
+         */
+        const arr = [
+            1,
+            2,
+            3,
+            4,
+            5,
+        ];
+
+        for (let i = 0; i < arr.length; i++) {
+            console.log(arr[i]);
+        }
+
+        console.log("\n");
+
+        class Person {
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+        }
+
+        const ps = [
+            new Person('icekylin', 20),
+            new Person('firekylin', 19),
+            new Person('sugarkylin', 8),
+        ];
+
+        for (let i = 0; i < ps.length; i++) {
+            let e = ps[i];
+
+            if (e.age <= 18) {
+                console.log(e);
+            }
+        }
+    </script>
+</head>
+<body></body>
+</html>

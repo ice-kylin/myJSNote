@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Copy</title>
+    <script>
+        "use strict";
+
+        /*
+         * # 对象的复制
+         *
+         * - 当调用 `slice` 时，会产生一个新的数组对象，从而完成对数组的复制
+         */
+        const arr1 = [
+            'a',
+            'b',
+            'c',
+        ];
+
+        const arr2 = arr1.slice();
+
+        console.log(arr1);
+        console.log(arr2);
+        console.log(arr1 === arr2);
+    </script>
+</head>
+<body></body>
+</html>
