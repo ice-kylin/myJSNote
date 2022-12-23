@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prototype 1</title>
+    <script>
+        "use strict";
+
+        /*
+         * # 原型对象
+         *
+         * - 原型对象中的数据
+         *   - 对象中的数据
+         *   - constructor（对象的构造函数）
+         * - 原型对象也有原型，这样就构成了一条原型链
+         *   - 根据对象的复杂程度的不同，原型链长度也不同
+         *   - 读取对象属性时，会优先使用对象自身属性
+         *     1. 如果对象中有，则使用，没有则去原型中寻找
+         *     2. 如果原型中有，则使用，没有则去原型的原型中寻找
+         *     3. 直到找到 Object 对象的原型（Object 的原型没有原型（`null`））
+         *     4. 如果依然没有找到，则返回 `undefined`
+         *   - 作用域链是找变量的链，找不到会报错
+         *   - 原型链是找属性的链，找不到会返回 `undefined`
+         */
+        class Person {
+            name = "icekylin";
+            age = 20;
+
+            sayHello() {
+                console.log("Hello");
+            }
+        }
+
+        const p1 = new Person();
+
+        /*
+         * 访问一个对象的原型对象
+         */
+        console.log(p1.__proto__);
+        console.log(Object.getPrototypeOf(p1));
+        console.log(Object.getPrototypeOf(p1).constructor);
+        console.log(p1.constructor);
+
+        console.log("\n");
+
+        console.log(Object.getPrototypeOf(Object.getPrototypeOf(p1)));
+        console.log(Object.getPrototypeOf(Object.getPrototypeOf(Object.getPrototypeOf(p1))));
+
+        console.log("\n");
+
+        const o = {};
+        console.log(Object.getPrototypeOf(o));
+        console.log(Object.getPrototypeOf(Object.getPrototypeOf(o)));
+    </script>
+</head>
+<body></body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>new</title>
+    <script>
+        "use strict";
+
+        /*
+         * # new
+         *
+         * - 当使用 `new` 去调用一个函数时，这个函数将会作为构造函数调用
+         * - 使用 `new` 调用函数时，将会发生以下事
+         *   1. 创建一个普通的 JS 对象（`{}`），为了方便，称其为 `newInstance`
+         *   2. 将 `newInstance` 的 `[[Prototype]]` 指向构造函数的 `prototype` 属性
+         *   3. 用给定的参数执行构造函数，将 `newInstance` 绑定为 `this` 上下文（即在构造函数中对 `this` 的所有引用现在都是指 `newInstance`）
+         *   4. 如果构造函数
+         *      - 返回一个非原始数据类型，那么这个返回值将成为整个 `new` 表达式的结果
+         *      - 否则，如果构造函数不返回任何东西或返回一个原始数据类型，就会返回 `newInstance`
+         *      - 通常构造函数不返回值，但它们可以选择这样做来覆盖正常的对象创建过程
+         */
+    </script>
+</head>
+<body></body>
+</html>

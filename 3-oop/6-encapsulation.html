@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Encapsulation</title>
+    <script>
+        "use strict";
+
+        /*
+         * # 封装
+         *
+         * - 对象就是一个用来存储不同属性的容器
+         * - 对象不仅负责存储属性，还要负责数据的安全
+         *   - 直接添加到对象中的属性，并不安全，因为它们可以被任意的修改
+         * - 如何确保数据的安全
+         *   1. 私有化数据：将需要保护的数据设置为私有，只能在类内部使用
+         *   2. 提供 getter 和 setter 方法来开放对数据的操作
+         *      - 优点
+         *        - 可以控制属性读写的权限
+         *        - 可以在方法中对属性的值进行验证
+         * - 封装只要用来确保数据的安全
+         */
+        class Person {
+            /*
+             * - 使用 `#` 开头就变成了私有属性
+             * - 私有属性只能在类的内部访问
+             */
+            #name;
+            #age;
+            #gender;
+            #address;
+
+            constructor(name, age, gender, address) {
+                this.#name = name;
+                this.#age = age;
+                this.#gender = gender;
+                this.#address = address;
+            }
+
+            get gender() {
+                return this.#gender;
+            }
+
+            set gender(value) {
+                this.#gender = value;
+            }
+
+            getName() {
+                return this.#name;
+            }
+
+            getAge() {
+                return this.#age;
+            }
+
+            setAge(age) {
+                if (age >= 0) {
+                    this.#age = age;
+                }
+            }
+
+            sayHi() {
+                console.log(`Hi, ${this.#name} from ${this.#address}!`);
+            }
+        }
+
+        const p1 = new Person("icekylin", 20, false, "uk");
+        console.log(p1);
+        p1.sayHi();
+        console.log(p1.getName());
+        console.log(p1.getAge());
+
+        console.log("\n");
+
+        p1.setAge(19);
+        console.log(p1.getAge());
+        p1.setAge(-10);
+        console.log(p1.getAge());
+
+        console.log("\n");
+
+        console.log(p1.gender);
+        p1.gender = true;
+        console.log(p1.gender);
+    </script>
+</head>
+<body></body>
+</html>

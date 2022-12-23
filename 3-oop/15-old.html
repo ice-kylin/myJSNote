@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Old</title>
+    <script>
+        "use strict";
+
+        /*
+         * # 旧类
+         *
+         * - 在 JS 中，直接通过函数来定义类
+         *   - 一个函数如果直接调用，那么这个函数就是一个普通的函数
+         *   - 一个函数如果通过 `new` 调用，那么这个函数就是一个构造函数
+         */
+        const Person = (function () {
+            function Person(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+
+            // 向原型中添加属性（方法）
+            Person.prototype.sayHello = function () {
+                console.log(`Hello, ${this.name}!`);
+            };
+
+            // 静态属性
+            Person.staticProperty = "Hi";
+            Person.staticMethod = function () {
+                console.log("staticMethod");
+            };
+
+            return Person;
+        })();
+
+        const p = new Person("icekylin", 20);
+        console.log(p);
+        p.sayHello();
+
+        console.log("\n");
+
+        const Animal = (function () {
+            function Animal() {
+            }
+
+            return Animal;
+        })();
+
+        const Cat = (function () {
+            function Cat() {
+            }
+
+            // 继承 Animal
+            Cat.prototype = new Animal();
+
+            return Cat;
+        })();
+
+        const cat = new Cat();
+        console.log(cat);
+
+        console.log("\n");
+
+        class Bird {
+            constructor(name) {
+                this._name = name;
+            }
+
+            get name() {
+                return this._name;
+            }
+
+            set name(value) {
+                this._name = value;
+            }
+        }
+
+        class Duck extends Bird {
+            constructor(name) {
+                super(name);
+            }
+        }
+
+        const d = new Duck('Yellow');
+        console.log(d);
+        console.log(d.__proto__);
+    </script>
+</head>
+<body></body>
+</html>

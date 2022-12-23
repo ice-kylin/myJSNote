@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Inherit 2</title>
+    <script>
+        "use strict";
+
+        /*
+         * # 继承
+         *
+         * - 通过继承，可以在不修改一个类的情况下对其进行扩展
+         */
+        class Animal {
+            constructor(name) {
+                this.name = name;
+            }
+
+            sayHello() {
+                console.log("歪比歪比");
+            }
+        }
+
+        class Dog extends Animal {
+            constructor(name) {
+                super(name);
+            }
+
+            // 在子类中，可以通过创建同名方法来重写父类的方法
+            sayHello() {
+                console.log("汪汪汪");
+            }
+        }
+
+        class Cat extends Animal {
+            /*
+             * 重写构造函数
+             *
+             * - 构造函数的第一行代码必须为 `super()`
+             */
+            constructor(name, age) {
+                super(name); // 调用父类的构造函数
+                this.age = age;
+            }
+
+            sayHello() {
+                super.sayHello(); // 在方法中可以使用 `super` 来引用父类的方法
+                console.log("喵喵喵");
+            }
+        }
+
+        const d = new Dog('Yellow');
+        const c = new Cat("White", 3);
+
+        console.log(d);
+        console.log(c);
+        d.sayHello();
+        c.sayHello();
+    </script>
+</head>
+<body></body>
+</html>

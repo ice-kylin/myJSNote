@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Polymorphism</title>
+    <script>
+        "use strict";
+
+        /*
+         * # 多态
+         *
+         * - JS 中不会检查参数的类型
+         *   - 意味着任何数据都可以作为参数传递
+         * - 要调用某个函数，无需指定类型，只需要对象满足某些条件即可
+         * - 🦆鸭子类型：当看到一只鸟走起来像鸭子、游泳起来像鸭子、叫起来也像鸭子，那么这只鸟就可以被称为鸭子
+         * - 多态提供了灵活性
+         */
+        class Person {
+            constructor(name) {
+                this.name = name;
+            }
+        }
+
+        class Dog {
+            constructor(name) {
+                this.name = name;
+            }
+        }
+
+        const p = new Person('icekylin');
+        const d = new Dog('Yellow');
+
+        function sayName(o) {
+            console.log(o.name);
+        }
+
+        sayName(p);
+        sayName(d);
+    </script>
+</head>
+<body></body>
+</html>
