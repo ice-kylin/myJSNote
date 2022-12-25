@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Issue</title>
+    <script>
+        "use strict";
+
+        /*
+         * 小问题
+         *
+         * - `filter()` 函数用来对数组进行过滤
+         *   - 目前函数只能过滤出数组中 `age` 属性小于 18 的对象
+         *   - 希望过滤更加灵活
+         * - 一个函数的参数也可以是函数
+         *   - 如果将函数作为参数传递，那么就称这个函数为回调函数
+         */
+        function filter(arr, f) {
+            const newArr = [];
+
+            for (let arrElement of arr) {
+                if (f(arrElement)) {
+                    newArr.push(arrElement);
+                }
+            }
+
+            return newArr;
+        }
+
+        class Person {
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+        }
+
+        const ps1 = [
+            new Person("icekylin", 14),
+            new Person("firekylin", 19),
+            new Person("sugarkylin", 17),
+        ];
+
+        console.log(filter(ps1, p => p.age > 18));
+        console.log(filter(ps1, p => p.age <= 18));
+    </script>
+</head>
+<body></body>
+</html>

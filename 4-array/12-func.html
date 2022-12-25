@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Function</title>
+    <script>
+        "use strict";
+
+        /*
+         * # 封装函数
+         */
+        function selectionSort(arr) {
+            const newArr = arr.slice();
+
+            const length = newArr.length;
+            let min, t;
+            for (let i = 0; i < length - 1; i++) {
+                min = i;
+                for (let j = i + 1; j < length; j++) {
+                    if (newArr[j] < newArr[min]) {
+                        min = j;
+                    }
+                }
+
+                if (i !== min) {
+                    t = newArr[min];
+                    newArr[min] = newArr[i];
+                    newArr[i] = t;
+                }
+            }
+
+            return newArr;
+        }
+
+        const arr1 = [9, 1, 3, 2, 8, 0, 5, 7, 6, 4];
+        const arr2 = selectionSort(arr1);
+
+        console.log(arr1);
+        console.log(arr2);
+
+        console.log("\n");
+
+        function filter(arr) {
+            const newArr = [];
+
+            for (let arrElement of arr) {
+                if (arrElement.age < 18) {
+                    newArr.push(arrElement);
+                }
+            }
+
+            return newArr;
+        }
+
+        class Person {
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+        }
+
+        const ps1 = [
+            new Person("icekylin", 14),
+            new Person("firekylin", 19),
+            new Person("sugarkylin", 17),
+        ];
+
+        const ps2 = filter(ps1);
+        console.log(ps2);
+    </script>
+</head>
+<body></body>
+</html>

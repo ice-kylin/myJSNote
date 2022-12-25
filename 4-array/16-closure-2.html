@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Closure 2</title>
+    <script>
+        "use strict";
+
+        /*
+         * # 闭包
+         *
+         * ## 闭包的原理
+         *
+         * - 函数在作用域，在函数创建时就已经确定了（词法作用域），和调用位置无关
+         * - 闭包利用的就是词法作用域
+         *
+         * ## 闭包的生命周期
+         *
+         * 1. 闭包在外部函数调用时产生，外部函数每次调用都会产生一个全新的闭包
+         * 2. 在内部函数丢失时销毁（内部函数被垃圾回收了，闭包才会消失）
+         *
+         * ## 闭包的注意事项
+         *
+         * - 闭包主要用来隐藏一些不希望被外部访问的内存空间
+         *   - 这就意味着闭包需要占用一定的内存空间
+         * - 相较于类来说，闭包比较浪费内存空间（类可以使用原型而闭包不能）
+         *   - 需要执行次数较少时，使用闭包
+         *   - 需要创建大量实例时，使用类
+         */
+        class Counter {
+            #i;
+            #outer;
+
+            constructor(i, f) {
+                this.#i = i;
+                // 这里也必须使用箭头函数，否则 this 将变为实际调用者
+                // 从而导致无法访问 #i 属性
+                this.#outer = () => {
+                    console.log(this.#i);
+                    this.#i++;
+
+                    return f(); // 如果回调函数不是箭头函数，this 在严格模式下就变成 undefined 了
+                };
+            }
+
+            get outer() {
+                return this.#outer;
+            }
+        }
+
+        // 函数
+        const f1 = (new Counter(1, () => {
+            // 必须使用箭头函数，this 才是正确的
+            // 缺点是 this 永远是 window
+            // 如果使用闭包，那么 this 可以保证是调用者
+            console.log(this);
+            console.log("回调函数执行");
+
+            return ("我是回调函数返回值");
+        })).outer;
+
+        let r = f1();
+        console.log(r);
+
+        for (let i = 0; i < 5; i++) {
+            console.log("\n");
+            f1();
+        }
+
+        console.log("\n---->8----\n\n");
+
+        // 方法
+        class Person {
+            constructor(name) {
+                this.name = name;
+            }
+
+            test = (new Counter(1, () => {
+                // 必须使用箭头函数，this 才是正确的
+                // 缺点是 this 永远是 Person 实例
+                // 如果使用闭包，那么 this 可以保证是调用者
+                console.log(this);
+                console.log("回调函数执行");
+                return ("我是回调函数返回值");
+            })).outer;
+        }
+
+        const p1 = new Person("Tom");
+        const p2 = new Person("Jerry");
+        r = p1.test();
+        console.log(r);
+
+        console.log("\n");
+
+        for (let i = 0; i < 5; i++) {
+            p1.test();
+            p2.test();
+            console.log("\n");
+        }
+    </script>
+</head>
+<body></body>
+</html>

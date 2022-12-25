@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Method 3</title>
+    <script>
+        "use strict";
+
+        /*
+         * # 数组的方法
+         *
+         * - `push()`
+         *   - 向数组的末尾添加一个或多个元素，并返回新的长度
+         * - `pop()`
+         *   - 删除并返回数组的最后一个元素
+         * - `unshift()`
+         *   - 向数组的开头添加一个或多个元素，并返回新的长度
+         * - `shift()`
+         *   - 删除并返回数组的第一个元素
+         */
+        const arr1 = ["a", "b", "c", "d"];
+
+        arr1.push("e");
+        let rst = arr1.push("f");
+
+        console.log(arr1);
+        console.log(rst);
+
+        console.log("\n");
+
+        let e = arr1.pop();
+
+        console.log(arr1);
+        console.log(e);
+
+        console.log("\n");
+
+        arr1.unshift("g");
+        console.log(arr1);
+
+        console.log("\n");
+
+        e = arr1.shift();
+        console.log(arr1);
+        console.log(e);
+
+        console.log("\n");
+
+        /*
+         * - `splice()`
+         *   - 可以删除、插入、替换数组中的元素
+         *   - 参数
+         *     1. 删除的起始位置
+         *     2. 删除的数量
+         *     3. 要插入的元素
+         */
+        const arr2 = ["a", "b", "c", "d", "e", "f"];
+
+        let arr3 = arr2.splice(1, 2);
+        console.log(arr2);
+        console.log(arr3);
+
+        arr2.splice(1, 2, "g", "h");
+        console.log(arr2);
+
+        arr2.splice(1, 0, "i", "j");
+        console.log(arr2);
+
+        console.log("\n");
+
+        /*
+         * - `reverse()`
+         *   - 反转数组
+         */
+        const arr4 = ["a", "b", "c", "d"];
+
+        arr4.reverse();
+        console.log(arr4);
+    </script>
+</head>
+<body></body>
+</html>

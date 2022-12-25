@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Higher Order Functions</title>
+    <script>
+        "use strict";
+
+        /*
+         * # 高阶函数
+         *
+         * - 如果一个函数的参数或返回值是函数，则这个函数就称为高阶函数
+         * - 回调函数的作用
+         *   - 将函数作为参数，意味着可以对另一个函数动态传递代码
+         */
+        function wrapper(f, g) {
+            return () => {
+                g();
+                return f();
+            };
+        }
+
+        const fn = wrapper(() => {
+            console.log("回调函数执行");
+            return ("我是回调函数返回值");
+        }, () => {
+            console.log("记录日志");
+        });
+
+        console.log(fn());
+    </script>
+</head>
+<body></body>
+</html>
