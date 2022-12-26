@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Destructuring 1</title>
+    <script>
+        "use strict";
+
+        /*
+         * # 解构赋值
+         */
+        const arr = ["1", "2", "3"];
+
+        let a, b, c;
+        [a, b, c] = arr; // 解构赋值
+        console.log(a, b, c);
+
+        console.log("\n");
+
+        let [d, e, f, g] = arr; // 声明同时解构
+        console.log(d, e, f, g);
+
+        console.log("\n");
+
+        [d, e, f, g] = ["a", "b", "c", "d"];
+        console.log(d, e, f, g);
+        [d, e, f, g = g] = [1, 2, 3]; // 指定默认值
+        console.log(d, e, f, g);
+
+        console.log("\n");
+
+        let [v1, v2] = [1, 2, 3, 4];
+        console.log(v1, v2);
+
+        let [n1, n2, ...n3] = [1, 2, 3, 4]; // 解构数组时，可以使用 ... 来获取多余的元素
+        console.log(n1, n2, n3);
+
+        console.log("\n");
+
+        // 可以通过解构赋值快速交换两个变量的值
+        let a1 = 233;
+        let a2 = 666;
+
+        console.log(a1, a2);
+        [a1, a2] = [a2, a1];
+        console.log(a1, a2);
+
+        console.log("\n");
+
+        // 交换数组中的变量
+        const arr2 = ["a", "b"];
+        console.log(arr2);
+        [arr2[1], arr2[0]] = [arr2[0], arr2[1]];
+        console.log(arr2);
+
+        console.log("\n");
+
+        /*
+         * - 数组中可以存储任意类型的数据，包括数组
+         *   - 如果一个数组中的元素还是数组，则这个数组称为是二维数组
+         */
+        const arr3 = [["icekylin", 20, false], ["firekylin", 18, false]];
+
+        let [[name1, age1, gender1], p] = arr3;
+        console.log(name1, age1, gender1);
+        console.log(p);
+    </script>
+</head>
+<body></body>
+</html>

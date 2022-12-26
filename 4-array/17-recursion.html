@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recursion</title>
+    <script>
+        "use strict";
+
+        /*
+         * # 递归
+         *
+         * - 调用自身的函数称为递归
+         * - 递归的作用和循环是基本一致的
+         */
+        // 阶乘
+        function fac(n) {
+            if (n <= 1) {
+                return 1;
+            } else {
+                return n * fac(n - 1);
+            }
+        }
+
+        console.log(fac(0));
+        console.log(fac(1));
+        console.log(fac(2));
+        console.log(fac(3));
+
+        console.log("\n");
+
+        /*
+         * - 一对兔子出生后两个月每个月都能生一对小兔子
+         * - 编写一个函数，用来计算第 n 个月兔子的数量
+         */
+        function fib(n) {
+            function fibHelper(n, x, y) {
+                if (n === 0) {
+                    return x;
+                } else if (n === 1) {
+                    return y;
+                } else {
+                    return fibHelper(n - 1, y, x + y);
+                }
+            }
+
+            return fibHelper(n, 0, 1);
+        }
+
+        for (let i = 0; i < 5; i++) {
+            console.log(fib(i));
+        }
+    </script>
+</head>
+<body></body>
+</html>
