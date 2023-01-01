@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Math</title>
+    <script>
+        "use strict";
+
+        /*
+         * # Math
+         *
+         * - Math 是一个工具类
+         * - Math 中提供了数学运算相关的一些常量和方法
+         * - 常量
+         *   - `PI`：圆周率
+         * - 方法
+         *   - `abs()`：求一个数的绝对值
+         *   - `min()`：求多个值中的最小值
+         *   - `max()`：求多个值中的最大值
+         *   - `pow()`：求 x 的 y 次幂
+         *   - `sqrt()`：求一个数的平方根
+         */
+        console.log(Math);
+        console.log(Math.PI);
+        console.log(Math.abs(-10));
+        console.log(Math.min(10, 20, 30, 44, 55, -1));
+        console.log(Math.max(10, 20, 30, 44, 55, -1));
+        console.log(Math.pow(2, 3));
+        console.log(Math.sqrt(9));
+
+        console.log("\n");
+
+        /*
+         * - 取整
+         *   - `floor()`：向下取整
+         *   - `ceil()`：向上取整
+         *   - `round()`：四舍五入
+         *   - `trunc()`：截断
+         */
+        console.log(Math.floor(1.2));
+        console.log(Math.ceil(1.2));
+        console.log(Math.round(1.2));
+        console.log(Math.trunc(1.2));
+
+        console.log("\n");
+
+        /*
+         * - `random()`
+         */
+        for (let i = 0; i < 5; i++) {
+            console.log(Math.random());
+        }
+
+        console.log("\n");
+
+        function getRandomInt(min, max) {
+            return Math.trunc(Math.random() * (max - min)) + min;
+        }
+
+        for (let i = 0; i < 10; i++) {
+            console.log(getRandomInt(0, 6)); // 0 ~ 5 之间的随机数
+        }
+    </script>
+</head>
+<body></body>
+</html>

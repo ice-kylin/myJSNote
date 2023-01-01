@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Set</title>
+    <script>
+        "use strict";
+
+        /*
+         * # Set
+         *
+         * - 创建一个集合
+         * - 和数组类似，不同点在于 Set 中不能存储重复的数据
+         * - 创建
+         *   - `new Set()`
+         * - 方法
+         *   - `size`
+         *   - `add()`
+         *   - `has()`
+         *   - `delete()`
+         */
+        // 创建一个 Set
+        const s1 = new Set();
+        console.log(s1);
+        console.log(s1.size);
+
+        console.log("\n");
+
+        // 向 set 中添加数据
+        s1.add(10);
+        s1.add("World");
+        s1.add("World");
+        s1.add(20);
+        console.log(s1);
+        console.log(s1.size);
+
+        console.log("\n");
+
+        console.log(s1.has(10));
+        console.log(s1.has("Hello"));
+
+        console.log("\n");
+
+        for (let s1Element of s1) {
+            console.log(s1Element);
+        }
+
+        console.log("\n");
+
+        const a1 = [...s1];
+        console.log(a1);
+
+        console.log("\n");
+
+        const a2 = [1, 2, 3, 2, 1, 3, 4, 5, 4, 6, 7, 7, 8, 9, 10];
+        const a3 = [...new Set(a2)];
+        console.log(a3);
+    </script>
+</head>
+<body></body>
+</html>

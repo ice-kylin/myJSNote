@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Map 2</title>
+    <script>
+        "use strict";
+
+        /*
+         * # Map 补充
+         */
+        const m1 = new Map();
+        m1.set("name", "icekylin");
+        m1.set("age", 20);
+        console.log(m1);
+
+        console.log("\n");
+
+        // 将 map 转换为数组
+        const a1 = Array.from(m1);
+        const a2 = [...m1];
+        console.log(a1);
+        console.log(a2);
+
+        console.log("\n");
+
+        const m2 = new Map([["name", "icekylin"], ["age", "20"]]);
+        console.log(m2);
+
+        console.log("\n");
+
+        // 遍历 map
+        for (let m1Element of m1) {
+            let [k, v] = m1Element;
+            console.log(m1Element);
+            console.log(k, v);
+        }
+
+        console.log("\n");
+
+        for (let [k, v] of m1) {
+            console.log(k, v);
+        }
+
+        console.log("\n");
+
+        m1.forEach((v, k) => {
+            console.log(k, v);
+        });
+
+        /*
+         * - `keys()`：获取 map 中所有的 `key`
+         * - `values()`：获取 map 的所有 `value`
+         * - `entries()`
+         */
+        console.log(m1.keys());
+        console.log(m1.values());
+    </script>
+</head>
+<body></body>
+</html>

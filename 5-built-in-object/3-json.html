@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSON</title>
+    <script>
+        "use strict";
+
+        /*
+         * # 对象的序列化
+         *
+         * - JS 的对象使用时都是存在于计算机的内存中的
+         * - 序列化指将对象转换为一个可以存储的格式
+         *   - 在 JS 中对象的序列化通常是将一个对象转换为字符串
+         * - 序列化的作用
+         *   - 对象转换为字符串后
+         *     - 可以将字符串在不同语言之间进行传递
+         *     - 甚至人可以直接对字符串进行读写操作，使得 JS 对象可以在不同语言之间传递
+         *   - 作为数据交换的格式
+         *   - 用来编写配置文件
+         * - 如何进行序列化
+         *   - 在 JS 中有一个工具类 JSON（JavaScript Object Notation）
+         *   - JS 对象序列化后会转换为一个字符串，这个字符串称为 JSON 字符串
+         * - 也可以手动的编写 JSON 字符串
+         *   - 在很多程序的配置文件就是使用 JSON 编写的
+         * - 编写 JSON 的注意事项
+         *   - JSON 字符串有两种类型
+         *     - JSON 对象 `{}`
+         *     - JSON 数组 `[]`
+         *   - JSON 字符串的属性名必须使用双引号引起来
+         *   - JSON 中可以使用的属性值（元素）
+         *     - 数字（Number）
+         *     - 字符串（String）
+         *     - 布尔值（Boolean）
+         *     - 空值（Null）
+         *     - 对象（Object）
+         *     - 数组（Array）
+         *   - JSON 的格式和 JS 对象的格式基本上是一致的
+         */
+        const o1 = {name: "icekylin", age: 20, address: ["uk", "cn"]};
+        console.log(o1);
+
+        console.log("\n");
+
+        const s = JSON.stringify(o1); // 可以将一个对象转换为 JSON 字符串
+        console.log(s);
+        console.log(typeof s);
+
+        console.log("\n");
+
+        const o2 = JSON.parse(s); // 可以将一个 JSON 格式的字符串转换为 JS 对象
+        console.log(o2);
+        console.log(o2 === o1);
+    </script>
+</head>
+<body></body>
+</html>

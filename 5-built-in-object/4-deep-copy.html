@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Deep Copy</title>
+    <script>
+        "use strict";
+
+        /*
+         * # 使用 JSON 进行深复制
+         */
+        const p1 = {name: "icekylin", friend: {name: "firekylin"}};
+
+        console.log(p1);
+
+        const p2 = JSON.parse(JSON.stringify(p1));
+        console.log(p2);
+        console.log(p2.friend === p1.friend);
+    </script>
+</head>
+<body></body>
+</html>

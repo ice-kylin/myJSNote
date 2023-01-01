@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Format</title>
+    <script>
+        "use strict";
+
+        /*
+         * # 日期的格式化
+         */
+        const d = new Date();
+        console.log(d);
+        console.log(d.toLocaleDateString()); // 将日期转换为本地的字符串
+        console.log(d.toLocaleTimeString()); // 将时间转换为本地的字符串
+
+        console.log("\n");
+
+        /*
+         * - `toLocaleString()`
+         *   - 将一个日期转换为本地时间格式的字符串
+         *   - 参数
+         *     1. 描述语言和国家信息的字符串
+         *     2. 需要一个对象作为参数，在对象中可以通过对象的属性来对日期的格式进行配置
+         *        - `dateStyle`：日期的风格
+         *        - `timeStyle`：时间的风格
+         *        - `hour12`：是否采用 12 小时制
+         *        - `weekday`：星期的显示方式
+         *        - `year`：年份的显示方式
+         */
+        console.log(d.toLocaleString());
+        console.log(d.toLocaleString("zh-CN"));
+        console.log(d.toLocaleString("zh-CN", {dateStyle: "full", timeStyle: "full"}));
+        console.log(d.toLocaleString("zh-CN", {"hour12": true}));
+        console.log(d.toLocaleString("zh-CN", {"weekday": "short"}));
+        console.log(d.toLocaleString("zh-CN", {"year": "2-digit"}));
+        console.log(d.toLocaleString("zh-HK"));
+
+        console.log("\n");
+
+        console.log(d.toDateString());
+    </script>
+</head>
+<body></body>
+</html>

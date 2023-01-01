@@ -9,6 +9,21 @@
         /*
          * # 对象的解构
          */
+        const o1 = {name: "icekylin", age: 20, gender: "female"};
+
+        let {name, age, gender} = o1; // 声明变量，同时解构对象
+        console.log(name, age, gender);
+
+        ({name, age, gender} = o1);
+        console.log(name, age, gender);
+
+        let {address} = o1; // 没有的属性返回 undefined
+        console.log(address);
+
+        console.log("\n");
+
+        let {name: a, age: b, gender: c, address: d = "uk"} = o1; // 可以指定别名以及默认值
+        console.log(a, b, c, d);
     </script>
 </head>
 <body></body>

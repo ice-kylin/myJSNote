@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>exec</title>
+    <script>
+        "use strict";
+
+        /*
+         * # exec()
+         *
+         * - 获取字符串中符合正则表达式的内容
+         */
+        const s = "abcaecafcacc";
+        const reg = /a([a-z])c/ig; // g 表示全局匹配
+
+        {
+            let rst;
+            while ((rst = reg.exec(s)) != null) {
+                console.log(rst);
+            }
+        }
+    </script>
+</head>
+<body></body>
+</html>

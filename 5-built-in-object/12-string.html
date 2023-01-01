@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>String</title>
+    <script>
+        "use strict";
+
+        /*
+         * # 字符串的方法
+         *
+         * - 字符串本质就是字符数组
+         * - 字符串的很多方法和数组是非常类似的
+         * - 属性和方法
+         *   - `length`：获取字符串的长度
+         *   - `字符串[索引]`：获取指定位置的字符
+         *   - `at()`：根据索引获取字符，可以接受负索引
+         *   - `charAt()`：根据索引获取字符
+         *   - `includes()`：用来检查字符串中是否包含某个内容
+         *   - `indexOf()`
+         *   - `lastIndexOf()`
+         *   - `startsWith()`：检查一个字符串是否以指定内容开头
+         *   - `endsWith()`：检查一个字符串是否以指定内容结尾
+         */
+        let s1 = "Hello";
+        console.log(s1.length);
+        console.log(s1[1]);
+
+        console.log("\n");
+
+        for (let s1Element of s1) {
+            console.log(s1Element);
+        }
+
+        console.log("\n");
+
+        console.log(s1.at(0));
+        console.log(s1.charAt(0));
+
+        console.log("\n");
+
+        console.log(s1.includes("ll"));
+        console.log(s1.includes("ll", 3));
+        console.log(s1.includes("hh"));
+        console.log(s1.startsWith("H"));
+        console.log(s1.endsWith("o"));
+
+        console.log("\n");
+
+        /*
+         * - `padStart()`
+         * - `padEnd()`
+         *   - 通过添加指定的内容，使字符串保持某个长度
+         */
+        console.log(">8".padStart(6, "-").padEnd(10, "-"));
+
+        /*
+         * - `replace()`：使用一个新字符串替换一个指定内容
+         * - `replaceAll()`：使用一个新字符串替换所有指定内容
+         * - `slice()`：对字符串进行切片
+         * - `substring()`：截取字符串
+         * - `split()`：将一个字符拆分为一个数组
+         * - `toLowerCase()`：将字符串转换为小写
+         * - `toUpperCase()`：将字符串转换为大写
+         * - `trim()：去除前后空格
+         * - `trimStart()`：去除开始空格
+         * - `trimEnd()`：去除结束空格
+         */
+    </script>
+</head>
+<body></body>
+</html>
