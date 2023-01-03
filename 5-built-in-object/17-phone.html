@@ -8,13 +8,13 @@
          * # 练习
          */
         const s = "dajsdh13715678903jasdlakdkjg13457890657djashdjka13811678908sdadadasd";
-        const reg = /(?:(?:\+|00)86)?(1)(3\d|4[5-79]|5[0-35-9]|6[5-7]|7[0-8]|8\d|9[1589])\d{4}(\d{4})/g;
+        const reg = /(?:(?:\+|00)86)?(1(?:3\d|4[5-79]|5[0-35-9]|6[5-7]|7[0-8]|8\d|9[1589]))\d{4}(\d{4})/g;
 
         {
             let rst;
             while ((rst = reg.exec(s)) != null) {
                 console.log(rst[0]);
-                console.log(`${rst[1]}${rst[2]}****${rst[3]}`);
+                console.log(`${rst[1]}****${rst[2]}`);
             }
         }
     </script>

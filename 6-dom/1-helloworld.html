@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello World</title>
+</head>
+<body>
+<button id="btn">
+    一个按钮
+</button>
+<script>
+    "use strict";
+
+    /*
+     * # Hello World
+     *
+     * - 要使用 DOM 来操作网页，需要浏览器至少先给一个对象，才能完成各种操作
+     * - 浏览器已经提供了一个 `document` 对象，它是一个全局变量，可以直接使用
+     *   - `document` 代表整个网页
+     */
+    console.log(document);
+
+    // 获取 btn 对象
+    const btn = document.getElementById("btn");
+    console.log(btn);
+
+    // 修改 btn 中的文字
+    console.log(btn.innerText);
+    btn.innerText = "点我一下";
+</script>
+</body>
+</html>

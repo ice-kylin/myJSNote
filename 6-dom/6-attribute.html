@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>attribute</title>
+</head>
+<body>
+<label>
+    <input class="input1" type="text" name="username" value="admin">
+</label>
+<script>
+    "use strict";
+
+    /*
+     * # 属性节点
+     *
+     * - 在 DOM 中也是一个对象
+     * - 通常不需要获取对象而是直接通过元素即可完成对其的各种操作
+     * - 如何操作属性节点
+     *   1. `元素.属性名`
+     *      - 读取
+     *        - class 属性需要通过 `className` 读取
+     *        - 读取一个布尔值时，会返回 `true` 或 `false`
+     *      - 修改：`元素.属性名 = 属性值`
+     *   2. `元素.getAttribute(属性名)`
+     *      - 读取
+     *      - 修改：`元素.setAttribute(属性名, 属性值)`
+     *      - 删除：`元素.removeAttribute()`
+     */
+    const input = document.getElementsByName("username")[0];
+    console.log(input);
+
+    console.log("\n");
+
+    console.log(input.type);
+    console.log(input.value);
+    console.log(input.className);
+    console.log(input.disabled);
+
+    input.value = "歪比巴卜";
+
+    console.log("\n");
+
+    console.log(input.getAttribute("type"));
+    input.setAttribute("value", "歪比歪比");
+    input.setAttribute("disabled", "disabled");
+    input.removeAttribute("disabled");
+</script>
+</body>
+</html>

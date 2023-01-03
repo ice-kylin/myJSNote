@@ -8,7 +8,30 @@
 
         /*
          * # 字符串
+         *
+         * - `split()`：可以根据正则表达式来对一个字符串进行拆分
+         * - `search()`：可以去搜索符合正则表达式的内容第一次在字符串中出现的位置
+         * - `replace()`：根据正则表达式替换字符串中的指定内容
+         * - `match()`：根据正则表达式去匹配字符串中符合要求的内容
+         * - `matchAll()`
+         *   - 根据正则表达式去匹配字符串中符合要求的内容（必须设置 `g` 全局匹配）
+         *   - 返回值是一个迭代器
          */
+        const regExp = /(?:(?:\+|00)86)?(1(?:3\d|4[5-79]|5[0-35-9]|6[5-7]|7[0-8]|8\d|9[1589]))\d{4}(\d{4})/g;
+
+        let str = "a@b@c@d";
+        console.log(str.split(/@/));
+
+        str = "dajsdh13715678903jasdlakdkjg13457890657djashdjka13811678908sdadadasd";
+        console.log(str.search(regExp));
+        console.log(str.replace(regExp, "歪比巴卜"));
+        console.log(str.match(regExp));
+
+        console.log("\n");
+
+        for (let phoneNum of str.matchAll(regExp)) {
+            console.log(phoneNum);
+        }
     </script>
 </head>
 <body></body>

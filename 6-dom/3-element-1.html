@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>element 1</title>
+</head>
+<body>
+<button id="btn">
+    我是按钮
+</button>
+<span class="s1">我是 span</span>
+<span class="s1">我是 span</span>
+<span class="s1">我是 span</span>
+<span class="s1">我是 span</span>
+<span class="s1">我是 span</span>
+<div>我是 div</div>
+<div>我是 div</div>
+<div>我是 div</div>
+<div>我是 div</div>
+<div>我是 div</div>
+<form>
+    <input type="text" name="username">
+    <input type="radio" name="gender" value="male"> 男
+    <input type="radio" name="gender" value="female"> 女
+</form>
+<script>
+    "use strict";
+
+    /*
+     * # 元素节点对象（element）
+     *
+     * - 在网页中，每一个标签都是一个元素节点
+     * - 获取方式
+     *   - 通过 `document` 对象来获取元素节点
+     *     - `getElementById()`：根据 id 获取一个元素节点对象
+     *     - `getElementsByClassName()`
+     *       - 根据元素的 class 属性值获取一组元素节点对象
+     *       - 返回的是一个类数组对象
+     *       - 返回的结果是一个实时更新的结集合
+     *         - 当网页中新添加元素时，集合也会实时的刷新
+     *     - `getElementsByTagName()`
+     *       - 根据标签名获取一组元素节点对象
+     *       - 返回的结果是可以实时更新的集合
+     *     - `getElementsByName()`
+     *       - 根据 name 属性获取一组元素节点对象
+     *       - 返回一个实时更新的集合
+     *       - 主要用于表单项
+     *     - `querySelectorAll()`
+     *       - 根据选择器去页面中查询元素
+     *       - 会返回一个不会实时更新的类数组
+     *   - 通过 `document` 对象来创建元素节点
+     *     - `createElement()`：根据标签名创建一个元素节点对象
+     */
+    console.log(document.body);
+    console.log(document.getElementById("btn"));
+
+    console.log("\n");
+
+    let spans = document.getElementsByClassName("s1");
+    console.log(spans);
+    console.log(spans.length);
+
+    for (let i = 0; i < spans.length; i++) {
+        spans[i].innerText = `我是 span ${i + 1}`;
+    }
+
+    let divs = document.getElementsByTagName("div");
+    console.log(divs);
+    console.log(divs.length);
+
+    console.log("\n");
+
+    console.log(document.getElementsByName("username"));
+    console.log(document.getElementsByName("gender"));
+
+    console.log("\n");
+
+    console.log(document.querySelectorAll("div"));
+    console.log(document.querySelector("#btn"));
+
+    console.log("\n");
+
+    let h1 = document.createElement("h1");
+    console.log(h1);
+</script>
+</body>
+</html>
