@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>text</title>
+    <style>
+        #box3 span {
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+<div id="box1">
+    <span>我是 div</span>
+</div>
+<div id="box2">
+    <span>我是 div</span>
+</div>
+<div id="box3">
+    <span>我是 div</span>
+</div>
+<script>
+
+    "use strict";
+
+    /*
+     * # 文本节点
+     *
+     * - 在 DOM 中，网页中所有的文本内容都是文本节点对象
+     * - 可以通过元素来获取其中的文本节点对象，但是通常不会这么做
+     * - 可以直接通过元素去修改其中的文本
+     * - 修改文本的 3 个属性
+     *   - `textContent`
+     *     - 获取或修改元素中的文本内容
+     *     - 获取的是标签中的内容，不会考虑 css 样式
+     *   - `innerText`
+     *     - 获取或修改元素中的文本内容
+     *     - 获取内容时，会考虑 css 样式
+     *     - 通过 `innerText` 读取 CSS 样式，会触发网页的重排（重新计算 CSS 样式）
+     *     - 当字符串中有标签时，会自动对标签进行转义
+     *   - `innerHTML`
+     *     - 获取或修改元素中的 html 代码
+     *     - 可以直接向元素中添加 html 代码
+     *     - 插入内容时，有被 xss 注入的风险
+     */
+    let box1 = document.getElementById("box1");
+    let box2 = document.getElementById("box2");
+    let box3 = document.getElementById("box3");
+
+    let text = box1.firstChild;
+    console.log(text);
+
+    console.log("\n");
+
+    console.log(box1.textContent);
+    console.log(box1.innerText);
+    console.log(box1.innerHTML);
+
+    box1.textContent = "<span>我是通过 JS 修改的 box1</span>";
+    box2.innerHTML = "<span>我是通过 JS 修改的 box2</span>";
+
+    console.log("\n");
+
+    console.log(box3.textContent);
+    console.log(box3.innerText);
+
+    box3.innerText = "我是通过 JS 修改的 box3";
+</script>
+</body>
+</html>

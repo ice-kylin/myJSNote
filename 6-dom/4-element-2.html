@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>element 2</title>
+</head>
+<body>
+<div id="box1">
+    我是 #box1
+    <span class="s1">我是 .s1</span>
+    <span class="s1">我是 .s1</span>
+</div>
+<span class="s1">我是 .s1</span>
+<script>
+    "use strict";
+
+    /*
+     * # 元素的属性和方法
+     */
+    const box1 = document.getElementById("box1");
+    console.log(box1);
+
+    console.log("\n");
+
+    /*
+     * - div 元素的原型链
+     *   - `HTMLDivElement.prototype`
+     *     - `HTMLElement.prototype`
+     *       - `Element.prototype`
+     *         - `Node.prototype`
+     *           - `EventTarget.prototype`
+     *             - `Object.prototype`
+     * - 通过元素节点获取其它节点的方法
+     *   - `childNodes()`：获取当前元素的子节点（会包含空白的子节点）
+     *   - `children()`：获取当前元素的子元素
+     *   - `firstElementChild()`：获取当前元素的第一个子元素
+     *   - `lastElementChild()`：获取当前元素的最后一个子元素
+     *   - `nextElementSibling()`：获取当前元素的下一个兄弟元素
+     *   - `previousElementSibling()`：获取当前元素的前一个兄弟元素
+     *   - `parentNode()`：获取当前元素的父节点
+     *   - `tagName`：获取当前元素的标签名
+     */
+    let currentObj = box1;
+    while (currentObj != null) {
+        console.log(currentObj);
+        currentObj = Object.getPrototypeOf(currentObj);
+    }
+
+    console.log("\n");
+
+    console.log(document.getElementsByClassName("s1").length);
+    console.log(box1.getElementsByClassName("s1").length);
+
+    console.log("\n");
+
+    let childNodes = box1.childNodes;
+    console.log(childNodes);
+    console.log(childNodes.length);
+
+    let children = box1.children;
+    console.log(children);
+    console.log(children.length);
+
+    console.log("\n");
+
+    console.log(box1.firstChild);
+    console.log(box1.firstElementChild);
+    console.log(box1.lastElementChild);
+
+    console.log("\n");
+
+    console.log(box1.nextSibling);
+    console.log(box1.nextElementSibling);
+    console.log(box1.previousSibling);
+    console.log(box1.previousElementSibling);
+
+    console.log("\n");
+
+    console.log(box1.parentNode);
+    console.log(box1.parentElement);
+
+    console.log("\n");
+
+    console.log(box1.tagName);
+</script>
+</body>
+</html>

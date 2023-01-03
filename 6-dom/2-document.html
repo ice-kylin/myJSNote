@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>document</title>
+</head>
+<body>
+<a href="javascript:">超链接</a>
+<script>
+    "use strict";
+
+    /*
+     * # document 对象
+     *
+     * - `document` 对象表示的是整个网页
+     * - `document` 对象的原型链
+     *   - `HTMLDocument.prototype`
+     *     - `Document.prototype`
+     *       - `Node.prototype`
+     *         - `EventTarget.prototype`
+     *           - `Object.prototype`
+     * - 凡是在原型链上存在的对象的属性和方法都可以通过 document 调用
+     * - 部分属性
+     *   - `documentElement`：html 根元素
+     *   - `head`：head 元素
+     *   - `title`：title 元素
+     *   - `links`：获取页面中所有的超链接
+     */
+    let currentObj = document;
+    while (currentObj != null) {
+        console.log(currentObj);
+        currentObj = Object.getPrototypeOf(currentObj);
+    }
+
+    console.log("\n");
+
+    console.log(document.documentElement);
+    console.log(document.head);
+    console.log(document.body);
+    console.log(document.links);
+
+    document.title = "歪比巴卜";
+</script>
+</body>
+</html>

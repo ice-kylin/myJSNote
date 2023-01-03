@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exer 1</title>
+    <script>
+        "use strict";
+
+        /*
+         * # Exer 1
+         */
+        document.addEventListener("DOMContentLoaded", function () {
+            const img = document.querySelector(".img-container img");
+            const prevBtn = document.getElementById("prev");
+            const nextBtn = document.getElementById("next");
+            const info = document.getElementById("info");
+
+            const imgs = ["./img/light.jpg", "./img/dark.jpg", "./img/intellij.png"];
+            let currentIndex = 0;
+
+            function updateInfo() {
+                info.textContent = `共 ${imgs.length} 张，当前为第 ${currentIndex + 1} 张`;
+            }
+
+            updateInfo();
+
+            prevBtn.addEventListener("click", function () {
+                img.setAttribute(
+                    "src",
+                    imgs[currentIndex = (currentIndex - 1) < 0 ? imgs.length - 1 : currentIndex - 1],
+                );
+                updateInfo();
+            });
+
+            nextBtn.addEventListener("click", function () {
+                img.setAttribute(
+                    "src",
+                    imgs[currentIndex = (currentIndex + 1) % imgs.length],
+                );
+                updateInfo();
+            });
+        });
+    </script>
+    <style>
+        .img-container img {
+            height: 720px;
+        }
+    </style>
+</head>
+<body>
+<div class="outer-container">
+    <p id="info"></p>
+    <div class="img-container">
+        <img src="./img/light.jpg" alt="img">
+    </div>
+    <div class="btn-container">
+        <button id="prev">上一个</button>
+        <button id="next">下一个</button>
+    </div>
+</div>
+</body>
+</html>

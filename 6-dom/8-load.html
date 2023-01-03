@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Load</title>
+    <script>
+        "use strict";
+
+        /*
+         * # 文档的加载
+         *
+         * - 网页是自上而下加载的
+         *   - 如果将 JS 代码编写到网页的上边
+         *   - JS 代码在执行时，网页还没有加载完毕，这时会出现无法获取到 DOM 对象的情况
+         * - 解决方法
+         *   - 将 script 标签编写到 body 最后
+         *   - 将代码编写到 `window.onload` 的回调函数中
+         *     - `window.onload` 事件会在窗口中的内容加载完毕之后才触发
+         *   - 将代码编写到 `document` 对象的 `DOMContendLoaded` 的回调函数中
+         *     - `DOMContendLoaded` 事件会在丹铅文档加载完毕之后再触发
+         *     - 执行时机更早
+         *   - 将代码编写到外部的 JS 文件中，然后以 defer 的形式进行引入
+         *     - 执行时机更早，早于 `DOMContendLoaded`
+         */
+        window.addEventListener("load", () => {
+            let btn = document.getElementById("btn");
+            console.log(btn);
+            console.log("load");
+        });
+
+        document.addEventListener("DOMContentLoaded", () => {
+            let btn = document.getElementById("btn");
+            console.log(btn);
+            console.log("DOMContentLoaded");
+        });
+    </script>
+    <script defer src="./js/8-load.js"></script>
+    <style>
+        iframe {
+            border: 0;
+        }
+    </style>
+</head>
+<body>
+<iframe src="https://www.bilibili.com"></iframe>
+<button id="btn">
+    我是 #btn
+</button>
+</body>
+</html>
