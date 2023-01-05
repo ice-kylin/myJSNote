@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Modify</title>
+    <script>
+        "use strict";
+
+        /*
+         * # 元素的修改
+         *
+         * - `appendChild()`：用于给一个节点添加子节点
+         * - `insertAdjacentElement()`：可以向元素的任意位置添加元素
+         *   1. 要添加的位置
+         *      - `beforeend`：标签的最后
+         *      - `afterbegin`：标签的开始
+         *      - `beforebegin`：在元素的前边插入元素（兄弟元素）
+         *      - `afterend`：在元素的后边插入元素（兄弟元素）
+         *   2. 要添加的元素
+         */
+        document.addEventListener("DOMContentLoaded", () => {
+            const list = document.getElementById("list");
+            const btn1 = document.getElementById("btn1");
+            const btn2 = document.getElementById("btn2");
+            const btn3 = document.getElementById("btn3");
+            const btn4 = document.getElementById("btn4");
+            const btn5 = document.getElementById("btn5");
+
+            btn1.addEventListener("click", () => {
+                const orange = document.createElement("li");
+                orange.textContent = "🍊";
+                orange.setAttribute("id", "orange");
+
+                list.appendChild(orange);
+            });
+            btn2.addEventListener("click", () => {
+                const watermelon = document.createElement("li");
+                watermelon.textContent = "🍉";
+                watermelon.setAttribute("id", "watermelon");
+
+                list.insertAdjacentElement("afterbegin", watermelon);
+            });
+            btn3.addEventListener("click", () => {
+                list.insertAdjacentHTML("beforeend", "<li id=\"fish-plate\">🍥</li>");
+            });
+            btn4.addEventListener("click", () => {
+                const sushi = document.createElement("li");
+                sushi.textContent = "🍣";
+                sushi.setAttribute("id", "sushi");
+
+                const apple = document.getElementById("apple");
+                apple.replaceWith(sushi);
+            });
+            btn5.addEventListener("click", () => {
+                document.getElementById("banana").remove();
+            });
+        });
+    </script>
+</head>
+<body>
+<ul id="list">
+    <li id="apple">🍎</li>
+    <li id="banana">🍌</li>
+    <li id="noodles">🍜</li>
+</ul>
+<hr>
+<button id="btn1">我是 #btn1</button>
+<button id="btn2">我是 #btn2</button>
+<button id="btn3">我是 #btn3</button>
+<button id="btn4">我是 #btn4</button>
+<button id="btn5">我是 #btn5</button>
+</body>
+</html>

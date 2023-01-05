@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Read CSS 1</title>
+    <script>
+        "use strict";
+
+        /*
+         * # 读取 CSS 样式
+         *
+         * - `getComputedStyle()`
+         *   - 会返回一个对象，对象中包含了当前元素中所有生效的样式
+         *   - 参数
+         *     1. 要获取样式的对象
+         *     2. 要获取的伪元素
+         *   - 样式对象中返回的样式值，不一定能拿来直接计算
+         *     - 所以使用时，一定要确保值是可以计算的才去计算
+         */
+        document.addEventListener("DOMContentLoaded", () => {
+            const box1 = document.querySelector(".box1");
+            const box1Style = getComputedStyle(box1);
+            const box1BeforeStyle = getComputedStyle(box1, "::before");
+
+            document.getElementById("btn1").addEventListener("click", () => {
+                console.log(box1.style.width);
+                console.log(box1.style.height);
+                console.log(box1.style.backgroundColor);
+
+                console.log("\n");
+
+                console.log(box1Style);
+                console.log(box1Style.width);
+                console.log(box1Style.height);
+                console.log(box1Style.backgroundColor);
+
+                console.log("\n");
+
+                console.log(box1BeforeStyle);
+                console.log(box1BeforeStyle.content);
+                console.log(box1BeforeStyle.color);
+            });
+
+            document.getElementById("btn2").addEventListener("click", () => {
+                box1.style.width = `${parseInt(box1Style.width) * 2}px`;
+                box1.style.height = `${parseInt(box1Style.height) * 2}px`;
+                box1.style.backgroundColor = "pink";
+            });
+        });
+    </script>
+    <style>
+        .box1 {
+            width: 64px;
+            height: 64px;
+            background-color: #bfa;
+        }
+
+        .box1::before {
+            content: "Hello";
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<button id="btn1">
+    点我一下
+</button>
+<button id="btn2">
+    点我一下
+</button>
+<hr>
+<div class="box1">
+</div>
+</body>
+</html>

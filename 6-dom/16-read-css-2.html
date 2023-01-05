@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Read CSS 2</title>
+    <script>
+        /*
+         * # 通过属性读取样式
+         */
+        document.addEventListener("DOMContentLoaded", () => {
+            const box1 = document.getElementById("box1");
+
+            document.getElementById("btn").addEventListener("click", () => {
+                /*
+                 * - `clientWidth`
+                 * - `clientHeight`
+                 *   - 获取元素内部的宽度和高度（包括内容区和内边距）
+                 * - `offsetHeight`
+                 * - `offsetWidth`
+                 *   - 获取元素可见框的大小（包括内容区、内边距和边框）
+                 * - `scrollHeight`
+                 * - `scrollWidth`
+                 *   - 获取
+                 */
+                console.log(box1.clientWidth);
+                console.log(box1.clientHeight);
+
+                console.log("\n");
+
+                console.log(box1.offsetWidth);
+                console.log(box1.offsetHeight);
+
+                console.log("\n");
+
+                console.log(box1.scrollWidth);
+                console.log(box1.scrollHeight);
+
+                console.log("\n");
+
+                /*
+                 * - `offsetParent`
+                 *   - 获取元素的定位父元素
+                 *   - 定位父元素
+                 *     - 离当前元素最近的开启了定位的祖先元素
+                 *     - 如果所有的元素都没有开启定位，则返回 body
+                 * - `offsetTop`
+                 * - `offsetLeft`
+                 *   - 获取元素相对于其定位父元素的偏移量
+                 */
+                console.log(box1.offsetParent);
+                console.log(box1.offsetTop);
+                console.log(box1.offsetLeft);
+
+                console.log("\n");
+
+                /*
+                 * - `scrollTop`
+                 * - `scrollLeft`
+                 *   - 获取或设置元素滚动条的偏移量
+                 */
+                console.log(box1.scrollTop);
+                box1.scrollTop = 32;
+                console.log(box1.scrollLeft);
+            });
+        });
+    </script>
+    <style>
+        #box1 {
+            width: 128px;
+            height: 128px;
+            background-color: #bfa;
+            padding: 32px;
+            margin: 32px;
+            border: 8px red solid;
+            overflow: auto;
+        }
+
+        #box2 {
+            width: 128px;
+            height: 256px;
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+<button id="btn">
+    点我一下
+</button>
+<hr>
+<div id="box1">
+    <div id="box2"></div>
+</div>
+</body>
+</html>

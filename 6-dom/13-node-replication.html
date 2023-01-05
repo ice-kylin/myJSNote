@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Node Replication</title>
+    <script>
+        "use strict";
+
+        /*
+         * # 节点的复制
+         *
+         * - `cloneNode()`
+         *   - 用来对节点进行复制
+         *   - 对节点进行复制时，会复制节点的所有特点（包括各种属性）
+         *   - 默认只会复制当前节点，而不会复制节点的子节点
+         *   - 可以传递一个 `true` 作为参数，这样该方法也会将元素的子节点一起复制
+         */
+        document.addEventListener("DOMContentLoaded", () => {
+            const ul1 = document.getElementById("ul1");
+            const ul2 = document.getElementById("ul2");
+            const li1 = document.getElementById("li1");
+
+            document.getElementById("btn1").addEventListener("click", () => {
+                ul2.insertAdjacentElement("beforeend", ul1.firstElementChild);
+            });
+
+            document.getElementById("btn2").addEventListener("click", () => {
+                const cloneNode = li1.cloneNode(true);
+                cloneNode.setAttribute("id", `new-${li1.getAttribute("id")}`);
+
+                ul2.insertAdjacentElement("beforeend", cloneNode);
+            });
+        });
+    </script>
+</head>
+<body>
+<button id="btn1">点我一下</button>
+<button id="btn2">点我一下</button>
+<hr>
+<ul id="ul1">
+    <li id="li1">🍎</li>
+    <li id="li2">🍌</li>
+    <li id="li3">🍊</li>
+</ul>
+<ul id="ul2">
+    <li>🍫</li>
+</ul>
+</body>
+</html>

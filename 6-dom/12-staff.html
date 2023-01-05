@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Staff</title>
+    <script>
+        "use strict";
+
+        /*
+         * # Staff
+         */
+        document.addEventListener("DOMContentLoaded", () => {
+            const deleteBtns = document.querySelectorAll("#table-container a");
+            const nameTextBox = document.getElementById("name");
+            const emailTextBox = document.getElementById("email");
+            const salaryTextBox = document.getElementById("salary");
+            const submitBtn = document.getElementById("submit");
+            const tbody = document.querySelector("#table-container tbody");
+
+            // 删除
+            function deleteCallback() {
+                /*
+                     * - 只要点击超链接就会触发页面的跳转
+                     * - 事件中可以通过取消默认行为来阻止超链接的跳转
+                     *   - `return false`
+                     *     - 有局限性
+                     *   - `javascript:`
+                     */
+                const tr = this.parentElement.parentElement;
+                if (confirm(`确认要删除 ${tr.firstElementChild.textContent} 吗？`)) {
+                    tr.remove();
+                }
+            }
+
+            for (let deleteBtn of deleteBtns) {
+                deleteBtn.addEventListener("click", deleteCallback);
+            }
+
+            // 添加
+            submitBtn.addEventListener("click", () => {
+                const name = nameTextBox.value;
+                const email = emailTextBox.value;
+                const salary = salaryTextBox.value;
+
+                {
+                    const tr = document.createElement("tr");
+                    const nameTd = document.createElement("td");
+                    const emailTd = document.createElement("td");
+                    const salaryTd = document.createElement("td");
+                    const deleteTd = document.createElement("td");
+                    const deleteBtn = document.createElement("a");
+
+                    nameTd.textContent = name;
+                    emailTd.textContent = email;
+                    salaryTd.textContent = salary;
+                    deleteTd.insertAdjacentElement("beforeend", deleteBtn);
+                    deleteBtn.addEventListener("click", deleteCallback);
+                    deleteBtn.textContent = "删除";
+                    deleteBtn.setAttribute("href", "javascript:");
+
+                    tr.insertAdjacentElement("beforeend", nameTd);
+                    tr.insertAdjacentElement("beforeend", emailTd);
+                    tr.insertAdjacentElement("beforeend", salaryTd);
+                    tr.insertAdjacentElement("beforeend", deleteTd);
+
+                    tbody.insertAdjacentElement("beforeend", tr);
+                }
+            });
+        });
+    </script>
+    <style>
+        table {
+            margin: auto;
+        }
+
+        table, th, td {
+            border: 1px solid;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            text-align: center;
+            padding: 8px;
+        }
+
+        form {
+            text-align: center;
+            line-height: 32px;
+        }
+
+        label {
+            margin: 8px;
+        }
+    </style>
+</head>
+<body>
+<div id="table-container">
+    <table>
+        <tbody>
+        <tr>
+            <th>🤧 姓名</th>
+            <th>📮 邮箱</th>
+            <th>💰 薪资</th>
+            <th>🔧 操作</th>
+        </tr>
+        <tr>
+            <td>孙悟空</td>
+            <td>swk@gmail.com</td>
+            <td>10000</td>
+            <td>
+                <a href="javascript:">删除</a>
+            </td>
+        </tr>
+        <tr>
+            <td>猪八戒</td>
+            <td>zbj@gmail.com</td>
+            <td>8000</td>
+            <td>
+                <a href="javascript:">删除</a>
+            </td>
+        </tr>
+        <tr>
+            <td>沙和尚</td>
+            <td>shs@gmail.com</td>
+            <td>6000</td>
+            <td>
+                <a href="javascript:">删除</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<hr>
+<div id="btn-container">
+    <form action="#">
+        <label for="name">姓名</label><input id="name">
+        <br>
+        <label for="email">邮箱</label><input id="email" type="email">
+        <br>
+        <label for="salary">薪资</label><input id="salary" type="number">
+        <br>
+        <button type="button" id="submit">添加</button>
+    </form>
+</div>
+</body>
+</html>
