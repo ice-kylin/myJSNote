@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event Loop</title>
+</head>
+<body>
+<button id="btn1">点我一下</button>
+<button id="btn2">点我一下</button>
+<script>
+    "use strict";
+
+    /*
+     * # 事件循环
+     *
+     * - 函数在每次执行时都会产生一个执行环境
+     * - 执行环境负责存储函数执行时产生的一切数据
+     * - 函数的执行环境存储到了一个叫做调用栈的地方
+     *   - 当一个函数被调用时，它的执行环境会作为一个栈帧插入到调用栈的栈顶
+     *   - 函数执行完毕其栈帧会自动从栈中弹出
+     * - 消息队列
+     *   - 消息队列负责存储将要执行的函数
+     *   - 当触发一个事件时，其响应函数并不是直接就添加到调用栈中的
+     *     - 因为调用栈中有可能会存在一些还没有执行完的代码
+     *   - 事件触发后，JS 引擎是将事件响应函数插入到消息队列中排队
+     */
+    document.getElementById("btn1").addEventListener("click", () => {
+        alert("按钮 1 点击");
+
+        const now = Date.now();
+        while (Date.now() - now < 3000) {
+        }
+    });
+
+    document.getElementById("btn2").addEventListener("click", () => {
+        console.log("按钮 2 点击");
+    });
+</script>
+</body>
+</html>

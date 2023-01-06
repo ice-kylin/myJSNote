@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bubble</title>
+    <script>
+        "use strict";
+
+        /*
+         * # 事件的冒泡
+         *
+         * - 事件的冒泡和元素的样式无关，只和结构相关
+         */
+        document.addEventListener("DOMContentLoaded", () => {
+            const box1 = document.getElementById("box1");
+
+            document.addEventListener("mousemove", (e) => {
+                box1.style.left = `${e.clientX}px`;
+                box1.style.top = `${e.clientY}px`;
+            });
+        });
+    </script>
+    <style>
+        #box1 {
+            width: 64px;
+            height: 64px;
+            background-color: greenyellow;
+            border-radius: 50%;
+            position: absolute;
+        }
+
+        #box2 {
+            width: 256px;
+            height: 256px;
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+<div id="box1"></div>
+<div id="box2"></div>
+</body>
+</html>

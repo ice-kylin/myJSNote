@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Modify Class</title>
+    <script>
+        "use strict";
+
+        /*
+         * # 操作 class
+         *
+         * - 除了直接修改样式外，也可以通过修改 class 属性来间接的修改样式
+         * - 通过 class 修改样式的好处
+         *   - 可以一次性修改多个样式
+         *   - 对 JS 和 CSS 进行解耦
+         */
+        document.addEventListener("DOMContentLoaded", () => {
+            const box1 = document.querySelector(".box1");
+
+            document.getElementById("btn1").addEventListener("click", () => {
+                box1.setAttribute("class", `${box1.getAttribute("class")} box2`);
+            });
+
+            document.getElementById("btn2").addEventListener("click", () => {
+                /*
+                 * `classList`：
+                 *
+                 * - 是一个对象
+                 * - 对象中提供了对当前元素的类的各种操作方法
+                 * - 方法
+                 *   - `add()`：向元素中添加一个或多个 class
+                 *   - `remove()`：移除元素中的一个或多个 class
+                 *   - `toggle()`：切换元素中的 class
+                 *   - `replace()`：替换 class
+                 *   - `contains()`：检查 class
+                 */
+                box1.classList.add("box2");
+                console.log(box1.classList.contains("box1"));
+            });
+        });
+    </script>
+    <style>
+        .box1 {
+            width: 256px;
+            height: 256px;
+            background-color: #bfa;
+        }
+
+        .box2 {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+<button id="btn1">点我一下</button>
+<button id="btn2">点我一下</button>
+<hr>
+<div class="box1"></div>
+</body>
+</html>

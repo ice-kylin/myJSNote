@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delegation 1</title>
+    <script>
+        "use strict";
+
+        /*
+         * # 事件的委派
+         *
+         * - 可以将事件统一绑定给 `document`
+         *   - 这样点击超链接时由于事件的冒泡
+         *   - 会导致 `document` 上的点击事件被触发
+         *   - 这样只绑定一次，所有的超链接都会具有这些事件
+         * - 委派就是将本该绑定给多个元素的事件，统一绑定给 `document`
+         */
+        document.addEventListener("DOMContentLoaded", () => {
+            const list = document.getElementById("list");
+            const links = list.getElementsByTagName("a");
+
+            function aCallback(e) {
+                console.log(e.target.textContent);
+            }
+
+            document.getElementById("btn").addEventListener("click", () => {
+                list.insertAdjacentHTML("beforeend", `<li><a href="javascript:">新的链接</a></li>`);
+            });
+
+            document.addEventListener("click", e => {
+                if ([...links].includes(e.target)) {
+                    aCallback(e);
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+<button id="btn">点我一下</button>
+<hr>
+<ul id="list">
+    <li><a href="javascript:">链接 1</a></li>
+    <li><a href="javascript:">链接 2</a></li>
+    <li><a href="javascript:">链接 3</a></li>
+    <li><a href="javascript:">链接 4</a></li>
+</ul>
+</body>
+</html>

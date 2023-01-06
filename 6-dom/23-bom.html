@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BOM</title>
+    <script>
+        "use strict";
+
+        /*
+         * # BOM 简介
+         *
+         * - 浏览器对象模型
+         * - BOM 提供了一组对象，通过这组对象可以完成对浏览器的各种操作
+         * - BOM 对象
+         *   - Window：浏览器窗口（全局对象）
+         *   - Navigator：浏览器的对象（可以用来识别浏览器）
+         *   - Location：浏览器的地址栏信息
+         *   - History：浏览器历史记录（控制浏览器的前进后退）
+         *   - Screen：用户的屏幕信息
+         * - BOM 对象都是作为 window 对象的属性保存的，所以可以直接在 JS 中访问这些对象
+         */
+        console.log(navigator);
+        console.log(location);
+        console.log(history);
+    </script>
+</head>
+<body></body>
+</html>

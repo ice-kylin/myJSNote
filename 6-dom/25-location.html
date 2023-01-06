@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Location</title>
+    <script>
+        "use strict";
+
+        /*
+         * # Location
+         *
+         * - `location` 表示的是浏览器地址栏的信息
+         * - 可以直接将 `location` 的值修改为一个新的地址，这样会使得网页发生跳转
+         * - `href`：获取当前的地址
+         * - `assign()`：跳转到一个新的地址
+         * - `replace()`：跳转到一个新的地址，无法通过回退按钮回退
+         * - `reload()`
+         *   - 刷新页面
+         *   - 可以传递一个 `true` 来强制清除缓存刷新
+         */
+        const url = "https://www.google.com";
+        console.log(location);
+        console.log(location.href);
+
+        document.addEventListener("DOMContentLoaded", () => {
+            document.getElementById("btn1").addEventListener("click", () => {
+                if (confirm("回退？")) {
+                    location.assign(url);
+                } else {
+                    location.replace(url);
+                }
+            });
+
+            document.getElementById("btn2").addEventListener("click", () => {
+                if (confirm("缓存？")) {
+                    location.reload();
+                } else {
+                    location.reload(true); // 火狐
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+<button id="btn1">点我一下</button>
+<button id="btn2">刷新一下</button>
+<hr>
+<form action="#">
+    <label>
+        <input type="text">
+    </label>
+</form>
+</body>
+</html>

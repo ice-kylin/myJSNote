@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>History</title>
+    <script>
+        "use strict";
+
+        /*
+         * # History
+         *
+         * - `back()`：回退按钮
+         * - `forward()`：前进按钮
+         * - `go()`：可以向前跳转也可以向后跳转
+         */
+        console.log(history);
+
+        document.addEventListener("DOMContentLoaded", () => {
+            document.getElementById("btn1").addEventListener("click", () => {
+                console.log(history.length);
+            });
+
+            document.getElementById("btn2").addEventListener("click", () => {
+                history.back();
+            });
+
+            document.getElementById("btn3").addEventListener("click", () => {
+                history.forward();
+            });
+        });
+    </script>
+</head>
+<body>
+<button id="btn1">点我一下</button>
+<button id="btn2">回退</button>
+<button id="btn3">前进</button>
+</body>
+</html>
