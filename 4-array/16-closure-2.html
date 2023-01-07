@@ -71,10 +71,6 @@
 
         // 方法
         class Person {
-            constructor(name) {
-                this.name = name;
-            }
-
             test = (new Counter(1, () => {
                 // 必须使用箭头函数，this 才是正确的
                 // 缺点是 this 永远是 Person 实例
@@ -83,6 +79,10 @@
                 console.log("回调函数执行");
                 return ("我是回调函数返回值");
             })).outer;
+
+            constructor(name) {
+                this.name = name;
+            }
         }
 
         const p1 = new Person("Tom");

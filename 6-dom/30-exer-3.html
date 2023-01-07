@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exer 3</title>
+    <script>
+        "use strict";
+
+        /*
+         * # Exer 3
+         */
+        const {setEqualInterval, clearEqualInterval} = (function () {
+            let timer;
+
+            function setEqualInterval(handler, timeout) {
+                const f = () => {
+                    handler();
+                    timer = setTimeout(f, timeout);
+                };
+
+                clearEqualInterval();
+                timer = setTimeout(f, timeout);
+            }
+
+            function clearEqualInterval() {
+                if (timer !== undefined) {
+                    clearTimeout(timer);
+                }
+            }
+
+            return {setEqualInterval, clearEqualInterval};
+        })();
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const imgsContainer = document.querySelector(".imgs-container .imgs");
+            const imgs = [...document.querySelectorAll(".imgs-container .imgs li img")];
+            const len = imgs.length;
+            const selectionsContainer = document.querySelector(".imgs-container .selections-container");
+            selectionsContainer
+                .insertAdjacentHTML(
+                    "beforeend",
+                    "<div class=\"selection current-selection\"></div>"
+                        .repeat(len > 0 ? 1 : 0)
+                    + "<div class=\"selection\"></div>"
+                        .repeat(len - 1),
+                );
+            const selections = [...document.querySelectorAll(".imgs-container .selections-container .selection")];
+
+            let current = 0;
+            let target;
+            let flag = false;
+
+            function changeImg(current, target) {
+                imgs[current].classList.remove("current-img");
+                imgs[target].classList.add("current-img");
+                selections[current].classList.remove("current-selection");
+                selections[target].classList.add("current-selection");
+            }
+
+            function prevCallback() {
+                target = (current - 1) < 0 ? imgs.length - 1 : current - 1;
+                changeImg(current, target);
+                current = target;
+            }
+
+            function nextCallback() {
+                target = (current + 1) % imgs.length;
+                changeImg(current, target);
+                current = target;
+            }
+
+            function selectCallback(e) {
+                target = selections.indexOf(e.target);
+                if (target !== -1 && target !== current) {
+                    changeImg(current, target);
+                    current = target;
+                }
+            }
+
+            document.getElementById("prev").addEventListener("click", prevCallback);
+            document.getElementById("next").addEventListener("click", nextCallback);
+            document.addEventListener("click", selectCallback);
+            document.getElementById("auto").addEventListener("click", e => {
+                if (flag) {
+                    clearEqualInterval();
+                    e.target.textContent = "幻灯片（关）";
+                    flag = false;
+                } else {
+                    setEqualInterval(nextCallback, 3000);
+                    e.target.textContent = "幻灯片（开）";
+                    flag = true;
+                }
+            });
+            imgsContainer.addEventListener("mouseenter", () => {
+                if (flag) {
+                    clearEqualInterval();
+                }
+            });
+            imgsContainer.addEventListener("mouseleave", () => {
+                if (flag) {
+                    setEqualInterval(nextCallback, 3000);
+                }
+            });
+        })
+        ;
+    </script>
+    <style>
+        ul，li {
+            margin: 0;
+            padding: 0;
+        }
+
+        .imgs-container {
+            position: relative;
+            height: 400px;
+            margin: 64px;
+        }
+
+        .imgs-container .imgs {
+            font-size: 0;
+            height: 100%;
+            list-style: none;
+        }
+
+        .imgs-container .imgs li img {
+            position: absolute;
+            z-index: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            height: 400px;
+            margin: auto;
+            transition: opacity 0.5s;
+            opacity: 0;
+            border-radius: 16px;
+        }
+
+        .imgs-container .imgs li .current-img {
+            z-index: 1;
+            opacity: 1;
+        }
+
+        .imgs-container .btns-container div {
+            font-size: 32px;
+            position: absolute;
+            z-index: 2;
+            top: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 64px;
+            height: 64px;
+            margin: auto;
+            transition: opacity 0.5s, background-color 0.5s;
+            opacity: 0;
+            border-radius: 50%;
+            background-color: rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(32px);
+        }
+
+        #prev {
+            left: 64px;
+        }
+
+        #next {
+            right: 64px;
+        }
+
+        .imgs-container .btns-container div svg {
+            width: 40%;
+            height: 40%;
+            color: white;
+        }
+
+        .imgs-container .selections-container {
+            position: absolute;
+            z-index: 3;
+            right: 0;
+            bottom: 16px;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            height: 16px;
+            margin: auto;
+        }
+
+        .imgs-container .selections-container .selection {
+            width: 16px;
+            height: 16px;
+            margin: 0 4px;
+            transition: opacity 0.5s, background-color 0.5s;
+            opacity: 0;
+            border-radius: 50%;
+            background-color: rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(32px);
+        }
+
+        .imgs-container:hover .btns-container div,
+        .imgs-container:hover .selections-container .selection {
+            opacity: 1;
+        }
+
+        .imgs-container:hover .btns-container div:hover,
+        .imgs-container:hover .selections-container .selection:hover,
+        .imgs-container .selections-container .current-selection {
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        #btn-container {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="imgs-container">
+    <ul class="imgs">
+        <li><img alt="img" class="current-img" src="./img/light.jpg"></li>
+        <li><img alt="img" src="./img/dark.jpg"></li>
+        <li><img alt="img" src="./img/intellij.png"></li>
+    </ul>
+    <div class="btns-container">
+        <div id="prev">
+            <svg class="icon"
+                 height="200"
+                 viewBox="0 0 1024 1024"
+                 width="200"
+                 xmlns="http://www.w3.org/2000/svg">
+                <path d="M143 462h800c27.6 0 50 22.4 50 50s-22.4 50-50 50H143c-27.6 0-50-22.4-50-50s22.4-50 50-50z"
+                      fill="#ffffff"
+                ></path>
+                <path d="M116.4 483.3l212.1 212.1c19.5 19.5 19.5 51.2 0 70.7s-51.2 19.5-70.7 0L45.6 554c-19.5-19.5-19.5-51.2 0-70.7 19.6-19.6 51.2-19.6 70.8 0z"
+                      fill="#ffffff"
+                ></path>
+                <path d="M328.5 328.6L116.4 540.7c-19.5 19.5-51.2 19.5-70.7 0s-19.5-51.2 0-70.7l212.1-212.1c19.5-19.5 51.2-19.5 70.7 0s19.5 51.2 0 70.7z"
+                      fill="#ffffff"
+                ></path>
+            </svg>
+        </div>
+        <div id="next">
+            <svg class="icon"
+                 height="200"
+                 viewBox="0 0 1024 1024"
+                 width="200"
+                 xmlns="http://www.w3.org/2000/svg">
+                <path d="M881 562H81c-27.6 0-50-22.4-50-50s22.4-50 50-50h800c27.6 0 50 22.4 50 50s-22.4 50-50 50z"
+                      fill="#ffffff"
+                ></path>
+                <path d="M907.6 540.7L695.5 328.6c-19.5-19.5-19.5-51.2 0-70.7s51.2-19.5 70.7 0L978.4 470c19.5 19.5 19.5 51.2 0 70.7-19.6 19.6-51.2 19.6-70.8 0z"
+                      fill="#ffffff"
+                ></path>
+                <path d="M695.5 695.4l212.1-212.1c19.5-19.5 51.2-19.5 70.7 0s19.5 51.2 0 70.7L766.2 766.1c-19.5 19.5-51.2 19.5-70.7 0s-19.5-51.2 0-70.7z"
+                      fill="#ffffff"
+                ></path>
+            </svg>
+        </div>
+    </div>
+    <div class="selections-container"></div>
+</div>
+<div id="btn-container">
+    <button id="auto">幻灯片（关）</button>
+</div>
+</body>
+</html>
