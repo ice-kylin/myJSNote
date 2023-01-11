@@ -112,8 +112,9 @@
 
         .imgs-container {
             position: relative;
-            height: 400px;
-            margin: 64px;
+            width: 640px;
+            height: 390px;
+            margin: 64px auto;
         }
 
         .imgs-container .imgs {
@@ -129,7 +130,7 @@
             right: 0;
             bottom: 0;
             left: 0;
-            height: 400px;
+            height: 390px;
             margin: auto;
             transition: opacity 0.5s;
             opacity: 0;
@@ -161,11 +162,11 @@
         }
 
         #prev {
-            left: 64px;
+            left: 32px;
         }
 
         #next {
-            right: 64px;
+            right: 32px;
         }
 
         .imgs-container .btns-container div svg {
@@ -216,9 +217,11 @@
 <body>
 <div class="imgs-container">
     <ul class="imgs">
-        <li><img alt="img" class="current-img" src="./img/light.jpg"></li>
-        <li><img alt="img" src="./img/dark.jpg"></li>
-        <li><img alt="img" src="./img/intellij.png"></li>
+        <li><img alt="img" class="current-img" src="./img/1.png"></li>
+        <li><img alt="img" src="./img/2.png"></li>
+        <li><img alt="img" src="./img/3.png"></li>
+        <li><img alt="img" src="./img/4.png"></li>
+        <li><img alt="img" src="./img/5.png"></li>
     </ul>
     <div class="btns-container">
         <div id="prev">
