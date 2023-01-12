@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wrap</title>
+    <script crossorigin="anonymous"
+            integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
+            src="https://code.jquery.com/jquery-3.6.3.min.js">
+    </script>
+    <script>
+        "use strict";
+
+        /*
+         * # 添加容器
+         *
+         * - `unwrap()`：删除外层父元素
+         * - `wrap()`：为当前元素添加一个容器
+         * - `wrapAll()`：为当前所有元素统一添加容器
+         * - `wrapInner()`：为当前元素添加一个内部容器
+         */
+        $(function () {
+            $("#btn1").click(function () {
+                $("#list1 li").unwrap();
+            });
+
+            $("#btn2").click(function () {
+                $("#list1 li").unwrap("div");
+            });
+
+            $("#btn3").click(function () {
+                $("#list1 li").wrap("<div></div>");
+            });
+
+            $("#btn4").click(function () {
+                $("#list1 li").wrapAll("<div></div>");
+            });
+
+            $("#btn5").click(function () {
+                $("#list1 li").wrapInner("<div></div>");
+            });
+        });
+    </script>
+</head>
+<body>
+<button id="btn1">btn1</button>
+<button id="btn2">btn2</button>
+<button id="btn3">btn3</button>
+<button id="btn4">btn4</button>
+<button id="btn5">btn5</button>
+<hr>
+<div>
+    <ul id="list1">
+        <li>🍎</li>
+        <li>🍌</li>
+    </ul>
+</div>
+</body>
+</html>

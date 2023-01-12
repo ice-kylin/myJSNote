@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Filter 1</title>
+    <script crossorigin="anonymous"
+            integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
+            src="https://code.jquery.com/jquery-3.6.3.min.js">
+    </script>
+    <script>
+        "use strict";
+
+        /*
+         * # 筛选 jQuery 对象
+         *
+         * - `eq()`：用来获取 jQuery 对象中指定索引的元素
+         * - `first()`：用来获取 jQuery 对象中第一个元素
+         * - `last()`：用来获取 jQuery 对象中最后一个元素
+         * - `even()`：用来获取 jQuery 对象中索引为偶数的元素
+         * - `odd()`：用来获取 jQuery 对象中索引为奇数的元素
+         * - `slice()`：用来获取 jQuery 对象中指定范围的元素
+         * - `filter()`：用来获取 jQuery 对象中符合条件的元素
+         * - `has()`：用来获取 jQuery 对象中包含指定元素的元素
+         * - `not()`：用来获取 jQuery 对象中不符合条件的元素
+         */
+        $(function () {
+            const $box1 = $(".box1");
+
+            $("#btn1").click(function () {
+                $box1
+                    .eq(0)
+                    .css("background-color", "#bbffaa");
+
+                $box1
+                    .eq(-1)
+                    .css("background-color", "#ffaa00");
+            });
+
+            $("#btn2").click(function () {
+                $box1
+                    .even()
+                    .css("background-color", "red");
+            });
+
+            $("#btn3").click(function () {
+                $box1
+                    .slice(1, 3)
+                    .css("background-color", "blue");
+            });
+
+            $("#btn4").click(function () {
+                $box1
+                    .filter(".a")
+                    .css("background-color", "orange");
+            });
+        });
+    </script>
+    <style>
+        .box1 {
+            float: left;
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+<button id="btn1">btn1</button>
+<button id="btn2">btn2</button>
+<button id="btn3">btn3</button>
+<button id="btn4">btn4</button>
+<hr>
+<div class="box1"></div>
+<div class="box1"></div>
+<div class="box1 a"></div>
+<div class="box1"></div>
+<div class="box1 a"></div>
+<div class="box1"></div>
+<div class="box1 a"></div>
+<div class="box1"></div>
+<div class="box1"></div>
+<div class="box1"></div>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Filter 1</title>
+    <script crossorigin="anonymous"
+            integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
+            src="https://code.jquery.com/jquery-3.6.3.min.js">
+    </script>
+    <script>
+        "use strict";
+
+        /*
+         * # 筛选 jQuery 对象
+         *
+         * - `end()`：将 jQuery 对象恢复到上一次筛选之前的状态
+         * - `add()`：向 jQuery 对象中添加元素
+         * - `contents()`：获取 jQuery 对象中所有元素的内容
+         * - `addBack()`：向 jQuery 对象中添加上一次筛选之前的元素
+         */
+        $(function () {
+            const $box1 = $(".box1");
+
+            $("#btn1").click(function () {
+                $box1
+                    .filter(".a")
+                    .css("background-color", "#bbffaa");
+            });
+
+            $("#btn2").click(function () {
+                $box1
+                    .filter(".a")
+                    .css("background-color", "#bbffaa")
+                    .end()
+                    .css("border-color", "blue");
+            });
+
+            $("#btn3").click(function () {
+                $box1
+                    .add(".box2")
+                    .css("background-color", "#bbffaa");
+            });
+
+            $("#btn4").click(function () {
+                $box1
+                    .contents()
+                    .css("background-color", "#ffaa00")
+                    .addBack()
+                    .css("background-color", "yellow");
+            });
+        });
+    </script>
+    <style>
+        .box1 {
+            float: left;
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            border: 1px solid red;
+        }
+
+        .box2 {
+            float: left;
+            width: 200px;
+            height: 200px;
+            margin: 10px;
+            border: 1px solid orange;
+        }
+    </style>
+</head>
+<body>
+<button id="btn1">btn1</button>
+<button id="btn2">btn2</button>
+<button id="btn3">btn3</button>
+<button id="btn4">btn4</button>
+<hr>
+<div class="box1"><span>我是 span</span></div>
+<div class="box1"><span>我是 span</span></div>
+<div class="box1 a"><span>我是 span</span></div>
+<div class="box1"><span>我是 span</span></div>
+<div class="box1 a"></div>
+<div class="box1"></div>
+<div class="box1 a"></div>
+<div class="box1"></div>
+<div class="box1"></div>
+<div class="box1"></div>
+<div class="box2"></div>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Methods</title>
+    <script crossorigin="anonymous"
+            integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
+            src="https://code.jquery.com/jquery-3.6.3.min.js">
+    </script>
+    <script>
+        "use strict";
+
+        /*
+         * # 各种方法
+         *
+         * - `empty()`：删除所有的子元素
+         * - `remove()`：移除元素（移除事件）
+         * - `detach()`：移除元素（不移除事件）
+         */
+        $(function () {
+            const $li = $("li:nth-child(1)");
+
+            $li.click(function () {
+                console.log("Hello");
+            });
+
+            $("#btn1").click(function () {
+                $("#list1").empty();
+            });
+
+            $("#btn2").click(function () {
+                $li.remove();
+            });
+
+            $("#btn3").click(function () {
+                $li.detach();
+            });
+
+            $("#btn4").click(function () {
+                $("#list1").append($li);
+            });
+
+            /*
+             * - `attr()`
+             *   - 读取布尔值返回实际值
+             * - `prop()`
+             *   - 读取布尔值返回 `true` / `false`
+             *   - 读取或设置元素的属性
+             *   - 读取布尔值属性时两者会返回不同类型的值
+             */
+            const $text = $("input[type=text]");
+            const $radio = $("input[type=radio]:nth-child(1)");
+
+            console.log($text.attr("type"));
+            console.log($text.attr("name"));
+            console.log($text.prop("name"));
+
+            console.log("\n");
+
+            console.log($radio.attr("checked"));
+            console.log($radio.prop("checked"));
+
+            console.log("\n");
+
+            $("#btn5").click(function () {
+                $text.prop("value", "Hello");
+                $radio.prop("checked", false);
+            });
+        });
+    </script>
+</head>
+<body>
+<button id="btn1">btn1</button>
+<button id="btn2">btn2</button>
+<button id="btn3">btn3</button>
+<button id="btn4">btn4</button>
+<hr>
+<ul id="list1">
+    <li>🍎</li>
+    <li>🍌</li>
+</ul>
+<hr>
+<label>
+    <input checked name="gender" type="radio" value="male">
+    男
+</label>
+<label>
+    <input name="gender" type="radio" value="female">
+    女
+</label>
+<hr>
+<label>
+    <input name="username" type="text">
+</label>
+<hr>
+<button id="btn5">btn5</button>
+</body>
+</html>

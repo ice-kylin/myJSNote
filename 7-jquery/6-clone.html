@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Clone</title>
+    <script crossorigin="anonymous"
+            integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
+            src="https://code.jquery.com/jquery-3.6.3.min.js">
+    </script>
+    <script>
+        "use strict";
+
+        /*
+         * # jQuery 对象的复制
+         *
+         * - `clone()`
+         *   - 复制 jQuery 对象
+         */
+        $(function () {
+            const $apple = $("#list1 li:nth-child(1)");
+            const $list2 = $("#list2");
+
+            $apple.click(function () {
+                console.log("🍎");
+            });
+
+            $("#btn1").click(function () {
+                $list2.append($apple);
+            });
+
+            $("#btn2").click(function () {
+                $list2.append($apple.clone());
+            });
+
+            $("#btn3").click(function () {
+                $list2.append($apple.clone(true));
+            });
+        });
+    </script>
+</head>
+<body>
+<button id="btn1">btn1</button>
+<button id="btn2">btn2</button>
+<button id="btn3">btn3</button>
+<hr>
+<ul id="list1">
+    <li>🍎</li>
+    <li>🍌</li>
+</ul>
+<ul id="list2">
+    <li>🍇</li>
+    <li>🍉</li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event</title>
+    <script crossorigin="anonymous"
+            integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
+            src="https://code.jquery.com/jquery-3.6.3.min.js">
+    </script>
+    <script>
+        "use strict";
+
+        /*
+         * # 事件的处理
+         */
+        $(function () {
+            // 可以通过指定方法来为 jQuery 对象绑定事件
+            $("#btn1").click(function () {
+                console.log("click 1");
+            }).click(function () {
+                console.log("click 2");
+            }).dblclick(function () {
+                console.log("dblclick");
+            });
+
+            $(document.body).click(function () {
+                console.log("click body");
+            });
+
+            $("a").click(function (e) {
+                console.log("click a");
+
+                // 在 jQuery 的事件响应函数中，同样有事件对象，但是这个对象是经过 jQuery 封装的新对象
+                // 包装该对象主要是为了解决兼容性的问题
+                console.log(e);
+
+                e.stopPropagation();
+                e.preventDefault();
+
+                // 在 jQuery 的事件回调函数中，可以通过 `return false` 取消默认行为和冒泡
+                // return false;
+            });
+
+            // 也可以通过 on() 来为 jQuery 对象绑定事件
+            $("#btn2").on("click.a", function () {
+                console.log("click 1");
+            }).on("click.b", function () {
+                console.log("click 2");
+            });
+
+            $("#btn3").on("click", function () {
+                $("#btn2").off("click.a"); // 可以通过 off 方法解绑事件
+            });
+
+            $("#btn4").on("click", function () {
+                $(document.body).append("<div class=\"box1\"></div>");
+            });
+
+            // 事件的委托
+            $(document).on("click", ".box1", function () {
+                console.log("click box1");
+            });
+
+            // one() 用来绑定一个一次性的事件
+            $(".box1").one("click", function () {
+                console.log("click box1 one");
+            });
+        });
+    </script>
+    <style>
+        .box1 {
+            float: left;
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            background-color: #bbffaa;
+        }
+    </style>
+</head>
+<body>
+<a href="#">超链接</a>
+<hr>
+<button id="btn1">btn1</button>
+<button id="btn2">btn2</button>
+<button id="btn3">btn3</button>
+<button id="btn4">btn4</button>
+<hr>
+<div class="box1"></div>
+<div class="box1"></div>
+<div class="box1"></div>
+<div class="box1"></div>
+<div class="box1"></div>
+</body>
+</html>

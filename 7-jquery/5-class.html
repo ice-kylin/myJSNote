@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Class</title>
+    <script crossorigin="anonymous"
+            integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
+            src="https://code.jquery.com/jquery-3.6.3.min.js">
+    </script>
+    <script>
+        "use strict";
+
+        /*
+         * # jQuery 对象操作 class
+         */
+        $(function () {
+            $("#btn").click(function () {
+                /*
+                 * ## 添加 class
+                 *
+                 * - `addClass()`
+                 *   - 可以为元素添加一个或多个 class
+                 *   - 可以接收一个回调函数作为参数
+                 *     - 在回调函数中，this 表示的是当前的元素
+                 *     - 回调函数的返回值会成为当前元素的 class
+                 */
+                $("div")
+                    .addClass(function (index, currentClass) {
+                        console.log(index, currentClass);
+                        console.log(this);
+
+                        if (index % 2 === 0) {
+                            return "box2";
+                        } else {
+                            return "box3";
+                        }
+                    });
+            });
+        });
+    </script>
+    <style>
+        .box1 {
+            width: 256px;
+            height: 256px;
+            background-color: #bbffaa;
+        }
+
+        .box2 {
+            border: 10px solid red;
+        }
+
+        .box3 {
+            background-color: orange;
+        }
+
+        .box4 {
+            width: 128px;
+            height: 128px;
+        }
+    </style>
+</head>
+<body>
+<button id="btn">点我一下</button>
+<hr>
+<div class="box1"></div>
+<div class="box1"></div>
+<div class="box1 box4"></div>
+</body>
+</html>

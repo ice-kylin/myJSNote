@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!--suppress ES6ConvertVarToLetConst -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Func 2</title>
+    <script crossorigin="anonymous"
+            integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
+            src="https://code.jquery.com/jquery-3.6.3.js">
+    </script>
+</head>
+<body>
+<button id="btn">点我一下</button>
+<div></div>
+<script>
+    "use strict";
+
+    $(function () {
+        console.log("核心函数");
+
+        const btn = document.getElementById("btn");
+        const $btn = $("#btn");
+        console.log($btn);
+
+        $btn.click(function () {
+            console.log("点击按钮");
+            const $h1 = $("<h1>我是一个标题</h1>");
+            console.log($h1);
+            $("div").append($h1);
+        });
+
+        console.log("\n");
+
+        console.log(btn);
+        console.log($(btn));
+    });
+
+    console.log("核心外部");
+</script>
+</body>
+</html>

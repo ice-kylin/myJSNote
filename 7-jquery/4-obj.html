@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Object</title>
+    <script crossorigin="anonymous"
+            integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
+            src="https://code.jquery.com/jquery-3.6.3.min.js">
+    </script>
+</head>
+<body>
+<button id="btn">点我一下</button>
+<ul>
+    <li id="apple">🍎</li>
+    <li id="banana">🍌</li>
+    <li>🍇</li>
+    <li>🍉</li>
+</ul>
+<script>
+    "use strict";
+
+    /*
+     * # jQuery 对象
+     *
+     * - 通过 jQuery 核心函数获取的对象就是 jQuery 对象
+     * - jQuery 对象是 jQuery 中定义的对象
+     *   - 可以理解为是 DOM 对象的升级版
+     *   - 在 jQuery 对象中提供了很多简单易用的方法来帮助简化 DOM 操作
+     *   - jQuery 对象本质上是一个 DOM 对象的类数组
+     *     - 可以通过索引获取到 jQuery 对象中的 DOM 对象
+     * - 当修改 jQuery 对象时，会自动修改 jQuery 对象中的所有元素
+     *   - 这一特点称为 jQuery 的隐式迭代
+     * - 通常情况下，jQuery 对象的方法的返回值依然是一个 jQuery 对象
+     *   - 所以可以在调用一个方法后继续调用其它的 jQuery 对象的方法
+     *   - 这一特性，称为 jQuery 对象的链式调用
+     */
+    const $li = $("li");
+
+    console.log($li);
+    console.log($li.length);
+    console.log($li[0]);
+
+    console.log("\n");
+
+    console.log($li.text()); // 读取文本，返回所有标签中的文本
+    console.log($li.attr("id")); // 读取属性时，返回第一个标签的属性
+
+    console.log("\n");
+
+    $("#btn").click(function () {
+        const rst = $li
+            .text("☕️ 咖啡")
+            .css("color", "red");
+        console.log(rst);
+        console.log(rst === $li);
+    });
+</script>
+</body>
+</html>

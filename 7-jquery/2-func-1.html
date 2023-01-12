@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--suppress ES6ConvertVarToLetConst -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Func 1</title>
+    <script crossorigin="anonymous"
+            integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
+            src="https://code.jquery.com/jquery-3.6.3.js">
+    </script>
+</head>
+<body>
+<script>
+    "use strict";
+
+    /*
+     * # jQuery
+     *
+     * - 引入 jQuery 库，其实就是向网页中添加了一个函数 `$`
+     *   - `$` 是 jQuery 中的核心函数
+     *   - jQuery 的所有功能都是通过该函数来进行的
+     * - jQuery 的核心函数 `$` 有两种使用方式
+     *   - 作为工具类使用
+     *     - 在核心函数中 jQuery 为提供了多个工具方法
+     *   - 作为函数使用
+     *     - 将一个函数作为参数
+     *       - 这个函数将会在文档加载完毕之后执行
+     *     - 将选择器字符串作为参数
+     *       - jQuery 会根据选择器字符串找到对应的元素
+     *       - 作用类似于 `document.querySelectorAll()`
+     *       - 返回值并不是原生的 DOM 对象，而是一个经过 jQuery 包装过的新的对象，称为 jQuery 对象
+     *       - jQuery 对象中提供了很多新的方法，方便做各种 DOM 操作
+     *         - 但是 jQuery 对象不能直接调用原生 DOM 对象的方法
+     *         - 通常为 jQuery 对象命名时，会在变量名前面加上 `$` 符号
+     *     - 将 DOM 对象作为参数
+     *       - 可以将 DOM 对象转化为 jQuery 对象，从而可以使用 jQuery 对象的方法
+     *     - 将 HTML 字符串作为参数
+     *       - 会根据 HTML 字符串来创建元素（jQuery 对象）
+     */
+    console.log($);
+    console.log(jQuery);
+    console.log(jQuery === $);
+    console.log(typeof $);
+
+    console.log("\n");
+
+    var n = 10;
+
+    function fn() {
+    }
+
+    console.log($.isFunction(n));
+    console.log($.isFunction(fn));
+</script>
+</body>
+</html>

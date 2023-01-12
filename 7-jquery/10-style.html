@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Style</title>
+    <script crossorigin="anonymous"
+            integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
+            src="https://code.jquery.com/jquery-3.6.3.min.js">
+    </script>
+    <script>
+        "use strict";
+
+        /*
+         * # 样式操作
+         *
+         * - `css()`：可以用来读取或设置元素的样式
+         */
+        $(function () {
+            const $box1 = $("#box1");
+
+            console.log($box1.css("width"));
+            console.log($box1.innerHeight());
+            console.log($box1.offset());
+
+            $("#btn1").click(function () {
+                $box1
+                    .css("background-color", "#ffaaaa")
+                    .css("width", "128px")
+                    .css("height", "128px");
+            });
+
+            $("#btn2").click(function () {
+                $box1
+                    .css({
+                        backgroundColor: "#bbffaa",
+                        height: "256px",
+                        width: "256px",
+                    });
+            });
+
+            $("#btn3").click(function () {
+                $box1.offset({
+                    top: 128,
+                    left: 128,
+                });
+            });
+        });
+    </script>
+    <style>
+        #box1 {
+            width: 256px;
+            height: 256px;
+            background-color: #aaaaff;
+        }
+    </style>
+</head>
+<body>
+<button id="btn1">btn1</button>
+<button id="btn2">btn2</button>
+<button id="btn3">btn3</button>
+<button id="btn4">btn4</button>
+<hr>
+<div id="box1">
+</div>
+</body>
+</html>
