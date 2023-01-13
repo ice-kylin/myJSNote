@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exer 1</title>
+    <script crossorigin="anonymous"
+            integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
+            src="https://code.jquery.com/jquery-3.6.3.min.js">
+    </script>
+    <script>
+        "use strict";
+
+        /*
+         * # Exer 1
+         */
+        $(function () {
+            const $checkAll = $("#check-all");
+            const $hobbies = $("input[name=hobby]");
+            const $all = $("#all");
+            const $cancel = $("#cancel");
+            const $reverse = $("#reverse");
+            const $submit = $("#submit");
+
+            function update() {
+                $checkAll.prop(
+                    "checked",
+                    !$hobbies.is(":not(:checked)"),
+                );
+            }
+
+            $hobbies.change(update);
+
+            $checkAll.change(function (e) {
+                if (e.target.checked) {
+                    $hobbies.prop("checked", true);
+                } else {
+                    $hobbies.prop("checked", false);
+                }
+            });
+
+            $all.click(function () {
+                $hobbies
+                    .add($checkAll)
+                    .prop("checked", true);
+            });
+
+            $cancel.click(function () {
+                $hobbies
+                    .add($checkAll)
+                    .prop("checked", false);
+            });
+
+            $reverse.click(function () {
+                $hobbies.each(function (index, hobby) {
+                    hobby.checked = !hobby.checked;
+                });
+
+                update();
+            });
+
+            $submit.click(function () {
+                const hobbies = [];
+                $hobbies.each(function (index, hobby) {
+                    if (hobby.checked) {
+                        hobbies.push(hobby.value);
+                    }
+                });
+                alert(
+                    hobbies.length > 0
+                        ? `选中的爱好：${hobbies.join("、")}`
+                        : "未选中任何爱好",
+                );
+            });
+        });
+    </script>
+</head>
+<body>
+<form action="#">
+    <p>选择你的爱好：</p>
+    <div>
+        <label for="check-all">全选</label>
+        <input id="check-all" name="check-all" type="checkbox">
+    </div>
+    <div>
+        <label>
+            🏓️ 兵乓球
+            <input name="hobby" type="checkbox" value="兵乓球">
+        </label>
+        <label>
+            🏀 篮球
+            <input name="hobby" type="checkbox" value="篮球">
+        </label>
+        <label>
+            🏸️ 羽毛球
+            <input name="hobby" type="checkbox" value="羽毛球">
+        </label>
+        <label>
+            ⚽️ 足球
+            <input name="hobby" type="checkbox" value="足球">
+        </label>
+    </div>
+    <div>
+        <button id="all" type="button">
+            全选
+        </button>
+        <button id="cancel" type="button">
+            取消
+        </button>
+        <button id="reverse" type="button">
+            反选
+        </button>
+        <button id="submit" type="button">
+            提交
+        </button>
+    </div>
+</form>
+</body>
+</html>

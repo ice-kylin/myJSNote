@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Staff</title>
+    <script crossorigin="anonymous"
+            integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
+            src="https://code.jquery.com/jquery-3.6.3.min.js">
+    </script>
+    <script>
+        "use strict";
+
+        /*
+         * # Staff
+         */
+        $(function () {
+            const $name = $("#name");
+            const $email = $("#email");
+            const $salary = $("#salary");
+            const $submit = $("#submit");
+
+            $(document).on("click", "#table-container a", function () {
+                const tr = $(this).parents("tr");
+
+                if (confirm(`确认要删除 ${tr
+                    .children("td:nth-child(1)")
+                    .text()} 吗？`)) {
+                    tr.remove();
+                }
+            });
+
+            $submit.click(function () {
+                const name = $name.val();
+                const email = $email.val();
+                const salary = $salary.val();
+
+                if (name === "" || email === "" || salary === "") {
+                    alert("请填写完整信息");
+
+                    return;
+                }
+
+                $("<tr></tr>")
+                    .append($("<td></td>").text(name))
+                    .append($("<td></td>").text(email))
+                    .append($("<td></td>").text(salary))
+                    .append($("<td><a href=\"javascript:\">删除</a></td>"))
+                    .appendTo("#table-container table tbody");
+            });
+        });
+    </script>
+    <style>
+        table {
+            margin: auto;
+        }
+
+        table, th, td {
+            border-collapse: collapse;
+            border: 1px solid;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: center;
+        }
+
+        form {
+            line-height: 32px;
+            text-align: center;
+        }
+
+        label {
+            margin: 8px;
+        }
+    </style>
+</head>
+<body>
+<div id="table-container">
+    <table>
+        <tbody>
+        <tr>
+            <th>🤧 姓名</th>
+            <th>📮 邮箱</th>
+            <th>💰 薪资</th>
+            <th>🔧 操作</th>
+        </tr>
+        <tr>
+            <td>孙悟空</td>
+            <td>swk@gmail.com</td>
+            <td>10000</td>
+            <td>
+                <a href="javascript:">删除</a>
+            </td>
+        </tr>
+        <tr>
+            <td>猪八戒</td>
+            <td>zbj@gmail.com</td>
+            <td>8000</td>
+            <td>
+                <a href="javascript:">删除</a>
+            </td>
+        </tr>
+        <tr>
+            <td>沙和尚</td>
+            <td>shs@gmail.com</td>
+            <td>6000</td>
+            <td>
+                <a href="javascript:">删除</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<hr>
+<div id="btn-container">
+    <form action="#">
+        <label for="name">姓名</label><input id="name">
+        <br>
+        <label for="email">邮箱</label><input id="email" type="email">
+        <br>
+        <label for="salary">薪资</label><input id="salary" type="number">
+        <br>
+        <button id="submit" type="button">添加</button>
+    </form>
+</div>
+</body>
+</html>
